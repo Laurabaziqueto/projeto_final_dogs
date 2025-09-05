@@ -1,0 +1,54 @@
+ .gradient-custom-2 {
+/* fallback for old browsers */
+    background: #BEECB1;
+    border-radius: 6px;
+}
+
+
+.container3 {
+    background: #F9E7EF;
+    border-radius: 6px;
+}
+
+
+.card-body {
+    background: #FAC3DC;
+    border-radius: 17px;
+}
+
+
+.button_login {
+    background: #EBA8C6;
+    border-color: #da95b0;
+}
+
+
+h4 {
+    font-family: ' ', sans-serif;
+    display: flex;
+    justify-content: center;
+    text-shadow:  0 2px 4px dimgrey;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-shadow:  0 2px 4px darkgrey;
+    margin: 20px 0;
+}
+
+
+.gradient-form {
+    height: 100vh;
+    overflow: hidden;
+
+}
+
+
+@media (min-width: 769px) {
+.gradient-custom-2 {
+border-top-right-radius: .3rem;
+border-bottom-right-radius: .3rem;
+}
+}
