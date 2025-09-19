@@ -1,11 +1,11 @@
- .gradient-custom-2 {
+ .card-body2 {
 /* fallback for old browsers */
     background: #BEECB1;
     border-radius: 6px;
 }
 
 
-.container3 {
+.container2 {
     background: #F9E7EF;
     border-radius: 6px;
 }
@@ -23,6 +23,17 @@
 }
 
 
+.button_voltar {
+    background: #1DA66D;
+    border-color: #4E9E65;
+}
+
+
+.button_sing {
+    background: #71B384;
+    border-color: #4E9E65;
+}
+
 h4 {
     font-family: ' ', sans-serif;
     display: flex;
@@ -39,16 +50,24 @@ h2 {
 }
 
 
-.gradient-form {
+.fundo {
     height: 100vh;
     overflow: hidden;
 
 }
 
 
-@media (min-width: 769px) {
-.gradient-custom-2 {
-border-top-right-radius: .3rem;
-border-bottom-right-radius: .3rem;
+
+
+.card-body3 {
+/* fallback for old browsers */
+    background: #DAEFD5;
+    border-radius: 6px;
+    border: 6px solid #EBA8C6;
 }
+
+.card4 {
+    background: #F9E7EF;
+    border-radius: 6px;
+    width: 100%;
 }
