@@ -1,0 +1,275 @@
+/* ===================== */
+/* SEU CSS ORIGINAL      */
+/* ===================== */
+
+/* Fundo geral */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2b6c8;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container central */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Card central */
+.card {
+  background-color: #d9f5d6;
+  border: 4px solid #8fbf8f;
+  padding: 20px 40px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 900px;
+  width: 120%;
+  height: 500px;
+}
+
+/* Títulos */
+.card h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 1px;
+  color: #fff;
+  text-shadow: 1px 1px 2px #999;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #b77a91;
+  margin-bottom: 20px;
+}
+
+/* Grid dos inputs */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 30px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Labels */
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Inputs */
+.form-group input {
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  background-color: #6fbf7f; /* verde dos campos */
+  color: white;
+  font-size: 1rem;
+}
+
+.form-group input::placeholder {
+  color: #eee;
+}
+
+/* Botões */
+.btn-primary {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  background-color: #5fa56e;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  margin-top: 10px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 20px;
+  background-color: #2f9e44;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* Logo e slogan */
+.logo {
+  margin-top: 20px;
+}
+
+.logo img {
+  width: 250px;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+.slogan {
+  color: #8fbf8f;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.slogan span {
+  display: block;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.botoesinicial {
+  flex-direction: column;
+}
+
+.card5 {
+  background-color: #d9f5d6;
+  border: 4px solid #8fbf8f;
+  padding: 20px 40px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 600px;
+  width: 800px;
+  height: 550px;
+  align-items: center;
+  position: absolute;
+  color: white;
+  justify-content: center;
+  font-family: "Berlin Sans FB";
+  font-size: 16px;
+}
+
+.imagem-card {
+  border-radius: 12px;
+  width: 1000px;
+  height: 650px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn-ini {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 50px;
+  background-color: #5fa56e;
+  color: #326c43;
+  font-weight: bold;
+  cursor: pointer;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  width: 570px;
+  height: 60px;
+  margin: 10px;
+  text-align: center;
+  font-family: "Harlow Solid Italic", cursive;
+  font-size: 20px;
+}
+
+.botoesinicial {
+  align-items: center;
+  text-align: center;
+}
+
+.textoini {
+  color: #ffffff;
+}
+
+
+.topo-alt {
+  background-color: #f8c6d0; /* rosa claro */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  color: #ffffff;
+}
+
+.topo-alt h1 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.logo-texto-alt {
+  font-size: 14px;
+  text-align: center;
+  color: #efefef;
+}
+
+.perfil-alt {
+  font-size: 24px;
+}
+
+/* Card alternativo */
+.card-alt {
+  background-color: #c6f6ad;
+  border: 10px solid #42ad62; /* verde escuro */
+  border-radius: 15px;
+  padding: 20px;
+  width: 600px;
+  text-align: center;
+
+
+}
+
+/* Fundo rosa do formulário */
+.card-alt form {
+  background-color: #ffb9d8;
+  border-radius: 15px;
+  padding: 20px;
+
+}
+
+/* Título do formulário */
+.titulo-card-alt {
+  background-color: #FFB9D8;
+  color: #ffffff;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* Inputs alternativos */
+.card-alt input,
+.card-alt select,
+.card-alt textarea {
+  width: 90%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Textarea */
+.card-alt textarea {
+  height: 80px;
+  resize: none;
+}
+
+/* Botão alternativo */
+.btn-alt {
+  background-color: #42ad62;
+  color: #ffffff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.btn-alt:hover {
+  background-color: #42ad62;
+}
