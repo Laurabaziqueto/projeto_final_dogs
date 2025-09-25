@@ -8,12 +8,14 @@
 .container2 {
     background: #F9E7EF;
     border-radius: 6px;
+    height: 80vh;
 }
 
 
 .card-body {
     background: #FAC3DC;
     border-radius: 17px;
+    height: 53vh;
 }
 
 
@@ -47,6 +49,13 @@ h2 {
     color: white;
     text-shadow:  0 2px 4px darkgrey;
     margin: 20px 0;
+}
+
+h5 {
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-shadow:  0 2px 4px darkgrey;
 }
 
 
