@@ -22,18 +22,31 @@
 .button_login {
     background: #EBA8C6;
     border-color: #da95b0;
+    border-radius: 20px;
 }
 
 
-.button_voltar {
+
+a.botao_voltar.btn {
     background: #1DA66D;
-    border-color: #4E9E65;
+    color: white;
+    border-color: #1e8e5d;
+    border-radius: 20px;
+    width: 60%;
+
+}
+
+a.botao_voltar.btn:hover {
+    background: #178a55;
+    color: white;
+
 }
 
 
 .button_sing {
     background: #71B384;
     border-color: #4E9E65;
+    border-radius: 20px;
 }
 
 h4 {
@@ -68,6 +81,7 @@ h5 {
 
 
 
+
 .card-body3 {
 /* fallback for old browsers */
     background: #DAEFD5;
@@ -80,6 +94,7 @@ h5 {
     border-radius: 6px;
     width: 100%;
 }
+
 
 
 
@@ -109,20 +124,25 @@ h5 {
 }
 
 
-button {
-    width: 80px;
-    height: 30px;
+a.btn {
+    width: 70%;
     background-color: #E086AE;
     color: white;
     box-shadow: 2px 4px 5px #da95b0;
-    margin-bottom: 10px;
-    border-radius: 20px;
-
+    margin-bottom: 20px;
+    border-radius: 40px;
 }
 
+
+a.btn:hover {
+    background-color: #c57d98;
+    color: white;
+}
+
+
 select {
-    width: 80px;
-    height: 30px;
+    width: 70%;
+    height:  40px;
     background-color: #E086AE;
     color: white;
     box-shadow: 2px 4px 5px #da95b0;
@@ -133,22 +153,27 @@ select {
 
 nav {
     background-color: #FFBBD9;
-    height: calc(100vh - 120px);
+    height: calc(100vh - 110px);
     /*border-right: 1px solid;*/
     text-align: center;
     float: left;
     font-size: 18px;
-    width: 11%;
+    width: 13%;
 }
 
 
 main {
-    height: calc(100vh - 130px);
+    height: calc(100vh - 110px);
+    width: 100%;
     background-color: #BEECB1;
     font-size: 16px;
 }
 
 ul {
     list-style-type: none;
+    width:  100%;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
