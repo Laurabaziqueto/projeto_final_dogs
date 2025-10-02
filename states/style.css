@@ -27,16 +27,15 @@
 
 
 
-a.botao_voltar.btn {
+.botao_voltar {
     background: #1DA66D;
     color: white;
     border-color: #1e8e5d;
     border-radius: 20px;
     width: 60%;
-
 }
 
-a.botao_voltar.btn:hover {
+.botao_voltar:hover {
     background: #178a55;
     color: white;
 
@@ -124,17 +123,17 @@ h5 {
 }
 
 
-a.btn {
+.button {
     width: 70%;
     background-color: #E086AE;
     color: white;
-    box-shadow: 2px 4px 5px #da95b0;
+
     margin-bottom: 20px;
     border-radius: 40px;
 }
 
 
-a.btn:hover {
+a.button:hover {
     background-color: #c57d98;
     color: white;
 }
@@ -145,7 +144,6 @@ select {
     height:  40px;
     background-color: #E086AE;
     color: white;
-    box-shadow: 2px 4px 5px #da95b0;
     margin-bottom: 100px;
     border-radius:  20px;
 }
@@ -176,4 +174,42 @@ ul {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+
+
+
+.card6 {
+    background: #4E9E65;
+    border-radius: 10px;
+    height: 60vh;
+}
+
+
+.card-body6 {
+    background: #DAEFD5;
+    border-radius: 17px;
+    height: 85%;
+    width: 80%;
+    margin-left: 15px;
+
+}
+
+
+.card-text {
+    background-color: #A9E698;
+     border-radius: 17px;
+     height: 60%;
+     width: 88%;
+     margin-left: 15px;
+}
+
+
+.select2 {
+    width: 70%;
+    height:  40px;
+    background-color: #4E9E65;
+    color: white;
+    margin-bottom: 100px;
+    border-radius:  20px;
 }
