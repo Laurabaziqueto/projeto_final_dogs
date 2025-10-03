@@ -3,14 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Pagina de Voluntario</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
           crossorigin="anonymous">
+
     <link rel="stylesheet" href="/states/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!--Fonte-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Purple+Purse&display=swap" rel="stylesheet">
 
 </head>
 <body>
-<div class="container4">
+<div class="container5 d-flex flex-column">
 
     <header class="topo-alt">
         <div class="logo-texto-alt"><img src="Logo.png" width="100" height="80"></div>
@@ -21,70 +29,85 @@
     </header>
 
 
-        <main class="">
+    <main class="d-flex flex-column justify-content-center">
 
-          <div class="div-botoes d-flex justify-content-center align-items-center">
-            <a href="https://www." class=" botao_voltar btn">Voltar</a>
-            <select class="select2" id="escolha">
-                    <option value="femea">Femea</option>
-                    <option value="macho">Macho</option>
-                </select>
+        <div class="div-botoes d-flex justify-content-center">
 
-            <select class="select2" id="escolha">
-                    <option value="femea">Femea</option>
-                    <option value="macho">Macho</option>
+            <a href="https://www." class="botao_voltar btn">
+                <i class="bi bi-arrow-left-short"></i>Voltar</a>
+
+            <select class="select2 mx-2" id="escolha">
+                <option value="femea">Guararapes</option>
+                <option value="macho">Macho</option>
             </select>
-          </div>
 
+            <select class="select2" id="escolha">
+                <option value="femea">São Paulo</option>
+                <option value="femea">Minas Gerais</option>
+                <option value="macho">Rio de Janeiro</option>
+                <option value="macho">Paraná</option>
+                <option value="macho">Mato Grosso do Sul</option>
+                <option value="macho">Goiás</option>
+            </select>
+        </div>
 
-          <div class="div-cards d-flex justify-content-center align-items-center">
-            <div class="card6 d-flex flex-column justify-content-center align-items-center" style="width: 20rem;">
+        <div class="div-cards2 d-flex justify-content-center align-items-center">
+            <div class="card7 d-flex flex-column justify-content-center align-items-center" style="width: 20rem;">
 
-              <div class="card-body6 mt-4 mx-1">
-                <img src="ong1.png" class="card-img-top mx-auto d-block mt-3 mb-2 rounded-4" style="height: 100px; width: 100px;">
-                <div class="card-text text-center p-4 mx-3">
-                  <p>
-                    Este é um exemplo de texto que descreve o conteúdo do card. Você pode escrever o que quiser aqui.
-                  </p>
+                <div class="card-body7 mt-4 mx-1">
+                    <img src="ong1.png" class="card-img-top mx-auto d-block mt-3 mb-2 rounded-4 shadow"
+                         style="height: 100px; width: 100px;">
+
+                    <div class="card-text text-center p-4 mx-3">
+                        <p>
+                            Este é um exemplo de texto que descreve o conteúdo do card. Você pode escrever o que quiser
+                            aqui.
+                        </p>
+                    </div>
                 </div>
-              </div>
-              <a href="https://www." class="btn button mt-2">Voluntaria-se</a>
+                <a href="https://www." class="btn button2 mt-2" style="width: 13rem">Voluntaria-se</a>
             </div>
 
 
-            <div class="card6 m-5 d-flex flex-column justify-content-center align-items-center" style="width: 20rem;">
+            <div class="card7 m-5 d-flex flex-column justify-content-center align-items-center" style="width: 20rem;">
 
-              <div class="card-body6 mt-4 mx-1">
-                <img src="ong2.png" class="card-img-top mx-auto d-block mt-3 mb-2 rounded-4" style="height: 100px; width: 100px;">
-                <div class="card-text text-center p-4 mx-3">
-                  <p>
-                    Este é um exemplo de texto que descreve o conteúdo do card. Você pode escrever o que quiser aqui.
-                  </p>
+                <div class="card-body7 mt-4 mx-1">
+                    <img src="ong2.png" class="card-img-top mx-auto d-block mt-3 mb-2 rounded-4 shadow"
+                         style="height: 100px; width: 100px;">
+
+                    <div class="card-text text-center p-4 mx-3">
+                        <p>
+                            Este é um exemplo de texto que descreve o conteúdo do card. Você pode escrever o que quiser
+                            aqui.
+                        </p>
+                    </div>
                 </div>
-              </div>
-              <a href="https://www." class="btn button mt-2">Voluntaria-se</a>
+                <a href="https://www." class="btn button2 mt-2" style="width: 13rem">Voluntaria-se</a>
             </div>
 
 
-            <div class="card6 d-flex flex-column justify-content-center align-items-center" style="width: 20rem;">
+            <div class="card7 d-flex flex-column justify-content-center align-items-center" style="width: 20rem;">
 
-              <div class="card-body6 mt-4 mx-1">
-                <img src="ong3.png" class="card-img-top mx-auto d-block mt-3 mb-2 rounded-4" style="height: 100px; width: 100px;">
-                <div class="card-text text-center p-4 mx-3">
-                  <p>
-                    Este é um exemplo de texto que descreve o conteúdo do card. Você pode escrever o que quiser aqui.
-                  </p>
+                <div class="card-body7 mt-4 mx-1">
+                    <img src="ong3.png" class="card-img-top mx-auto d-block mt-3 mb-2 rounded-4 shadow"
+                         style="height: 100px; width: 100px;">
+
+                    <div class="card-text text-center p-4 mx-3">
+                        <p>
+                            Este é um exemplo de texto que descreve o conteúdo do card. Você pode escrever o que quiser
+                            aqui.
+                        </p>
+                    </div>
                 </div>
-              </div>
-              <a href="https://www." class="btn button mt-2">Voluntaria-se</a>
+                <a href="https://www." class="btn button2 mt-2" style="width: 13rem">Voluntaria-se</a>
             </div>
-          </div>
+        </div>
 
-        </main>
+    </main>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-                crossorigin="anonymous"></script>
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
 </div>
 </body>

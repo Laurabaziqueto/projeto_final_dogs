@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<head lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Pagina de Animais</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
           crossorigin="anonymous">
+
     <link rel="stylesheet" href="/states/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!--Fonte-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Purple+Purse&display=swap" rel="stylesheet">
 
 </head>
 <body>
 <div class="container4">
 
     <header class="topo-alt">
-        <div class="logo-texto-alt"><img src="Logo.png" width="100" height="80"></div>
+        <div class="logo-texto-alt ms-3"><img src="Logo.png" width="100" height="80"></div>
         <h1>Adote-me</h1>
         <div class="perfil-alt">
             <botton><img src="/personagem.png" width="50" height="50" alt=""></botton>
@@ -33,7 +41,7 @@
                 <a href="https://www." class="btn button">Coelho</a>
             </li>
             <li>
-                <select id="escolha">
+                <select class="select1" id="escolha">
                     <option value="femea">Femea</option>
                     <option value="macho">Macho</option>
                 </select>
@@ -51,19 +59,34 @@
                 <a href="https://www." class="btn button">ADD +</a>
             </li>
             <li>
-                <a href="https://www." class=" botao_voltar btn">Voltar</a>
+                <a href="https://www." class=" botao_voltar btn w-50">
+                    <i class="bi bi-arrow-left-short"></i>Voltar</a>
             </li>
 
         </ul>
     </nav>
 
-        <main class="">
+    <main>
+        <div class="div-cards d-flex flex-wrap">
+            <div class="card6 d-flex flex-column justify-content-center align-items-center shadow mt-4 mx-4"
+                 style="width: 17rem;">
 
-        </main>
-    </div>
+                    <h5 class="text-title">Nome</h5>
+                    <img src="ong1.png" class="card-img-top mx-auto d-block mt-1 rounded-4 shadow"
+                         style="height: 100px; width: 100px;">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-            crossorigin="anonymous"></script>
+                    <div class="card-body6 text-center mx-3 my-2 d-flex flex-column justify-content-center align-items-center">
+                        <p>Femêa</p>
+                        <p>Médio</p>
+                        <p>2 a 6 messes</p>
+                        <a href="https://www." class="btn button2 mt-2 ">Voluntaria-se</a>
+                    </div>
+                </div>
+        </div>
+    </main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </div>
 </body>
