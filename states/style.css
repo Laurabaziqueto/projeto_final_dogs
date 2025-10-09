@@ -17,9 +17,12 @@
   text-shadow:  0 2px 4px darkgrey;
 }
 
-h1 {
+
+h1,h4 {
     font-family: "Purple purse";
     text-shadow:  0 2px 2px lightgrey;
+    display: flex;
+    justify-content: center;
 }
 
 .purple-purse-regular {
@@ -101,29 +104,23 @@ main {
     background: #EBA8C6;
     border-color: #da95b0;
     border-radius: 20px;
-}
-
-
-h4 {
-    font-family: ' ', sans-serif;
-    display: flex;
-    justify-content: center;
-    text-shadow:  0 2px 4px dimgrey;
-}
-
-h2 {
-    display: flex;
-    justify-content: center;
     color: white;
-    text-shadow:  0 2px 4px darkgrey;
-    margin: 20px 0;
 }
+
+.button_login:hover {
+    background-color: #da95b0;
+    color: white;
+}
+
+.btn.button_sing:active {
+  background-color: #da95b0;
+  border-color: #da95b0;
+  color: white;
+}
+
 
 h5 {
-    display: flex;
-    justify-content: center;
     color: white;
-    text-shadow:  0 2px 4px darkgrey;
 }
 
 
