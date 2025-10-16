@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro Animal</title>
+    <link rel="stylesheet" href="../static/base.css">
+</head>
+<body>
+
+
+<header class="topo-alt">
+    <div class="logo-texto-alt"><img src="/logo1.png" width="100" height="100"></div>
+    <h1>Cadastro Animal</h1>
+    <div class="perfil-alt">
+        <botton><img src="/personagem.png" width="50" height="50" alt=""></botton>
+    </div>
+</header>
+
+
+<main class="container1">
+    <div class="card-alt">
+        <h2 class="titulo-card-alt">Preencha os dados abaixo</h2>
+
+        <form>
+            <input type="text" placeholder="Nome">
+            <input type="Idade" placeholder="Idade">
+            <input type="text" placeholder="Raça">
+
+            <select style="background-color: #A8CBA4; color: #555; border-radius: 10px; padding: 8px; border: none; width: 525px;">
+                <option disabled selected>Sexo</option>
+                <option>Macho</option>
+                <option>Fêmea</option>
+            </select>
+
+            <form action="/receberlink" method="post">
+                <label for="url">Adicione o link da Imagem:</label>
+                <input type="url" id="url" name="url" placeholder="https://exemplo.com" required>
+            </form>
+
+
+            <button type="submit" class="btn-alt">+ Voltar</button>
+            <button type="submit" class="btn-alt">+ Concluir</button>
+        </form>
+    </div>
+</main>
+
+</body>
+</html>
