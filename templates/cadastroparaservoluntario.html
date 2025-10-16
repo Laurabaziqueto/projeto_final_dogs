@@ -7,55 +7,52 @@
   <link rel="stylesheet" href="../static/base.css">
 </head>
 <body>
-  <div class="container">
-    <div class="card">
+  <div class="container15">
+    <div class="card15">
       <h1>Cadastro</h1>
 
-      <form action="{{url_for('cadastrar_usuario')}}" method="post">
-        <div class="form-grid">
-          <div class="form-group">
+
+      <form>
+        <div class="form-grid15">
+
+          <div class="form-group15">
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome">
           </div>
-          <div class="form-group">
+
+          <div class="form-group15">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email">
           </div>
 
-          <div class="form-group">
+          <div class="form-group15">
             <label for="telefone">Telefone:</label>
             <input type="text" id="telefone" name="telefone">
-
           </div>
 
-          <div class="form-group">
+          <div class="form-group15">
             <label for="senha">Senha:</label>
             <input type="password" id="senha" name="senha">
           </div>
 
-          <div class="form-group ">
-            <button type="submit" class="btn-primary">Cadastrar-se</button>
-            <button class="btn-secondary">◂ Voltar</button>
-
+          <div class="form-group15">
+            <label for="data">Data de Nascimento:</label>
+            <input type="date" id="data" name="data">
           </div>
 
-
-
-
-          <div class="form-group">
+          <div class="form-group15">
             <label for="cpf">CPF:</label>
             <input type="text" id="cpf" name="cpf">
-
           </div>
         </div>
+
+        <!-- Botões -->
+        <div class="form-actions15">
+          <button type="button" class="btn-voltar15">◂ Voltar</button>
+          <button type="submit" class="btn-cadastrar15">Cadastrar-se ▸</button>
+        </div>
+
       </form>
-
-
-
-      <div class="logo">
-        <img src="/logo1.png" width=700" height="700">
-
-      </div>
     </div>
   </div>
 </body>
