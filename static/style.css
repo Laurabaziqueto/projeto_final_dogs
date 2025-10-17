@@ -6,6 +6,8 @@
 }
 
 
+
+
 .topo-alt {
   background-color: #FEDBEA; /* rosa claro */
   display: flex;
@@ -91,7 +93,9 @@ main {
     gap: 10px;
 }
 
-
+#testes{
+    background-color: #00329f;
+}
 .card-body {
     background: #FAC3DC;
     border-radius: 17px;
@@ -118,7 +122,9 @@ main {
   color: white;
 }
 
-
+#teste{
+    height: 10vh;
+}
 h5 {
     color: white;
 }
@@ -127,17 +133,18 @@ h5 {
 .fundo {
     height: 100vh;
     overflow: hidden;
+
 }
 
 
 
 /*Pagina login*/
 
-.card-body3 {
+.card-body21 {
 /* fallback for old browsers */
     background: #DAEFD5;
     color: white;
-
+    width: 100vw;
     border-radius: 6px;
     border: 6px solid #EBA8C6;
 }
@@ -240,7 +247,6 @@ h5 {
    border-radius: 5px;
 }
 
-
 .button2 {
     background-color: #FAC3DC;
     color: #E883B0;
@@ -262,7 +268,6 @@ h5 {
 p {
     margin: 2px;
 }
-
 
 ul {
     list-style-type: none;

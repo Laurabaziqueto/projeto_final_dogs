@@ -28,18 +28,18 @@
             <form action="/receberlink" method="post">
 
 
+                <textarea
+                        style="background-color: #A8CBA4; color: #555; border-radius: 10px; padding: 8px; border: none; width: 510px;"
+                        placeholder="Adicione uma descrição"></textarea>
 
-                <textarea style="background-color: #A8CBA4; color: #555; border-radius: 10px; padding: 8px; border: none; width: 510px;" placeholder="Adicione uma descrição"></textarea>
-
-                 <label for="url">Adicione o link da Imagem:</label>
+                <label for="url">Adicione o link da Imagem:</label>
                 <input type="url" id="url" name="url" placeholder="https://exemplo.com" required>
             </form>
-
-
-
-
-            <button type="submit" class="btn-alt">+ Voltar</button>
-            <button type="submit" class="btn-alt">+ Concluir</button>
+                <div class="form-group ">
+                <button type="submit" class="btn-primary">Concluido</button>
+                <a class="btn-secondary" href="{{url_for('index')}}"> ◂ Voltar</a>
+                <a href=""></a>
+                </div>
         </form>
     </div>
 </main>

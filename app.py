@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, flash, url_for, render_template, redirect
+from flask import Flask, request, jsonify, flash, url_for, render_template, redirect, session
 from select import select
 
 from routes import *
@@ -6,104 +6,91 @@ from routes import *
 app = Flask(__name__)
 app.secret_key = "sua_chave_secreta"
 
-@app.route("/usuarios", methods=['POST', 'GET'])
-def get_usuarios():
-    dados = get_usuarios()  # função precisa existir em routes.py
+@app.route('/')
+def index():
+    return render_template('Pagina_inicial.html')
 
-    if "usuarios" in dados:
-        user = dados["usuarios"]
-        return jsonify({"usuarios": user})
-    else:
-        flash("Erro ao buscar usuários.")
-        return jsonify({"erro": "Não foi possível buscar os usuários"}), 400
+# ---------------------- LOGIN ----------------------
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        senha = request.form['senha']
 
+        if email == 'teste@teste.com' and senha == '123456':
+            session['usuario_id'] = 1
+            session['usuario_nome'] = 'Usuário Teste'
+            flash('Login bem-sucedido!', 'success')
+            return redirect(url_for('listar_pagamento'))
+        else:
+            flash('Email ou senha inválidos.', 'danger')
+
+    return render_template('Pagina_login.html')
+
+# # ---------------------- CADASTRAR USUÁRIO ----------------------
 @app.route('/usuario/cadastrar', methods=['GET', 'POST'])
 def cadastrar_usuario():
     if request.method == 'POST':
         nome = request.form.get('nome')
+        telefone = request.form.get('telefone')
         email = request.form.get('email')
         senha = request.form.get('senha')
-        telefone = request.form.get('telefone')
         cpf = request.form.get('cpf')
 
-        if not nome or not email or not senha or not telefone:
+        if not nome or not email or not cpf or not telefone or not senha:
             flash('Todos os campos são obrigatórios.', 'danger')
-            return redirect(url_for('cadastrar_usuario'))
+            return redirect(url_for('login'))
 
-
-        cadastrar = post_usuario(nome, email, cpf, senha,telefone)
-        print(cadastrar)
-
-        flash(f'Usuário {nome} cadastrado com sucesso! (Simulado)', 'success')
-
-        # return redirect(url_for('login'))
-        print('deu certo')
+        flash(f'Voluntário {nome} cadastrado com sucesso! (Simulado)', 'success')
+        return redirect(url_for('login'))
 
     return render_template('Cadastro.html')
 
-@app.route('/animal/cadastrar', methods=['GET', 'POST'])
-def cadastrar_animal():
-    if request.method == 'POST':
-        nome = request.form.get('nome')
-        raca = request.form.get('raca')
-        idade = request.form.get('idade')
-        sexo = request.form.get('sexo')
+# # ---------------------- CADASTRAR ANIMAL ----------------------
+# @app.route('/animal/cadastrar', methods=['GET', 'POST'])
+# def cadastrar_animal():
+#     if request.method == 'POST':
+#         nome_animal = request.form.get('nome_animal')
+#         raca = request.form.get('raca')
+#         idade = request.form.get('idade')
+#
+#         if not nome_animal or not raca or not idade:
+#             flash('Todos os campos são obrigatórios.', 'danger')
+#             return redirect(url_for('cadastrar_animal'))
+#
+#         # Simula cadastro
+#         flash(f'Animal {nome_animal} cadastrado com sucesso! (Simulado)', 'success')
+#         return redirect(url_for('consultar_animal'))
+#
+#     return render_template('cadastro_animal.html')
 
-        if not nome or not raca or not idade or not sexo:
-            flash('Todos os campos são obrigatórios.', 'danger')
-            return redirect(url_for('cadastro_animal'))
+# # ---------------------- CADASTRAR PAGAMENTO ----------------------
+# @app.route('/pagamento/cadastrar', methods=['POST'])
+# def cadastrar_pagamento():
+#     dados_pagamento = request.get_json()
+#     if not dados_pagamento:
+#         return {"mensagem": "Nenhum dado recebido"}, 400
+#
+#     return {"mensagem": "Pagamento cadastrado! (Simulado)"}, 201
 
-        cadastro = post_usuario(nome, raca, idade, sexo)
-        print(cadastro)
-
-        flash(f'Animal {nome} cadastrado com sucesso! (Simulado)', 'success')
-        # return redirect(url_for('login'))
-        print('deu certo')
-
-    return render_template('cadastro_animal.html')
-
-@app.route('/editar_usuario', methods=['PUT'])
-def editar_usuario():
-    # busca de acordo com o id, usando o db_session
-    # usuario_resultado = db_session.execute(select(Usuario).filter_by(id=int(id_usuario))).scalar()
-    usuariro_editado = put_usuario()
-    print(usuario_resultado)
-
-    # verifica se existe
-    if not usuario_resultado:
-        flash("Usuario não encontrado", "error")
-        return redirect(url_for('usuario'))
-    if request.method == 'POST':
-        # valida os dados recebidos
-        if not request.form.get('form_nome'):
-            flash("Preencher campo", "error")
-        elif not request.form.get('form_email'):
-            flash("Preencher campo", "error")
-        elif not request.form.get('form_senha'):
-            flash("Preencher campo", "error")
-        elif not request.form.get('form_telefone'):
-            flash("Preencher campo", "error")
-        elif not request.form.get('form_cpf'):
-            flash("Preencher campo", "error")
-        else:
-            try:
-                # o ponto (.) busca a informaÃ§Ã£o
-                # atualiza os dados
-                usuario_resultado.nome = request.form.get('form_nome')
-                usuario_resultado.email = request.form.get('form_email')
-                usuario_resultado.senha = request.form.get('form_senha')
-                usuario_resultado.telefone = request.form.get('form_telefone')
-                usuario_resultado.cpf = request.form.get('form_cpf')
-
-                # salva os dados alterados
-                usuario_resultado.save()
-                flash("Usuario atualizado com sucesso!", "sucess")
-                return redirect(url_for('usuario'))
-            except Exception:
-                flash(f"Erro {Exception}", "error")
-    return render_template('editar_usuario.html')
-
-
+# # ---------------------- CADASTRAR VOLUNTARIO ----------------------
+# @app.route('/cadastrar_voluntario/cadastrar', methods=['GET', 'POST'])
+# def cadastrar_voluntario():
+#     if request.method == 'POST':
+#         nome = request.form.get('nome')
+#         cpf = request.form.get('cpf')
+#         telefone = request.form.get('telefone')
+#         data_nascimento = request.form.get('data_nascimento')
+#         email = request.form.get('email')
+#
+#         if not nome or not cpf or not telefone or not email or not data_nascimento:
+#             flash('Todos os campos são obrigatórios.', 'danger')
+#             return redirect(url_for('cadastrar_voluntario'))
+#
+#         flash(f'Voluntário {nome} cadastrado com sucesso! (Simulado)', 'success')
+#         return redirect(url_for('login'))
+#
+#     return render_template('cadastroparaservoluntario.html')
 
 if __name__ == "__main__":
-    app.run(debug=True,host="0.0.0.0",port=5000)
+    app.run(debug=True,host="0.0.0.0",port=5001)

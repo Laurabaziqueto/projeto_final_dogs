@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="../static/base.css">
 </head>
 <body>
-  <div class="container">
-    <div class="card">
+  <div id="testes" class="container">
+    <div  class="card">
       <h1>Cadastro</h1>
 
       <form action="{{url_for('cadastrar_usuario')}}" method="post">
@@ -35,7 +35,8 @@
 
           <div class="form-group ">
             <button type="submit" class="btn-primary">Cadastrar-se</button>
-            <button class="btn-secondary">◂ Voltar</button>
+            <a class="btn-secondary" href="{{url_for('index')}}"> ◂ Voltar</a>
+              <a href=""></a>
 
           </div>
 
@@ -53,7 +54,7 @@
 
 
       <div class="logo">
-        <img src="/logo1.png" width=700" height="700">
+        <img src="/static/logo1.png" width=700" height="700">
 
       </div>
     </div>
