@@ -1,6 +1,6 @@
 import requests
 
-base_url = "http://10.135.233.6:5002"
+base_url = "http://10.135.233.133:5000"
 
 # ---------------------- LOGIN ----------------------
 def post_login(email, senha):

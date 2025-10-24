@@ -6,7 +6,10 @@
 }
 
 
-
+ .fundo {
+    height: 100vh;
+    overflow: hidden;
+}
 
 .topo-alt {
   background-color: #FEDBEA; /* rosa claro */
@@ -93,9 +96,7 @@ main {
     gap: 10px;
 }
 
-#testes{
-    background-color: #00329f;
-}
+
 .card-body {
     background: #FAC3DC;
     border-radius: 17px;
@@ -122,29 +123,18 @@ main {
   color: white;
 }
 
-#teste{
-    height: 10vh;
-}
+
 h5 {
     color: white;
-}
-
-
-.fundo {
-    height: 100vh;
-    overflow: hidden;
-
 }
 
 
 
 /*Pagina login*/
 
-.card-body21 {
-/* fallback for old browsers */
+.card-body3 {
     background: #DAEFD5;
     color: white;
-    width: 100vw;
     border-radius: 6px;
     border: 6px solid #EBA8C6;
 }
@@ -309,7 +299,7 @@ ul {
 
 
 .select2 {
-    width: 15%;
+    width: 17%;
     background-color: #4E9E65;
     color: white;
     border-radius:  20px;
@@ -318,6 +308,25 @@ ul {
 
 
 /*Pagina Doações*/
+
+
+ .botao_adicionar {
+
+    background-color: #4E9E65;
+    color: white;
+    border-radius: 40px;
+}
+
+.botao_adicionar:hover {
+    background-color: #2f7744;
+    color: white;
+}
+
+.btn.botao_adicionar:active {
+  background-color: #2f7744;
+  color: white;
+}
+
 
 .card8 {
     background: #4E9E65;
