@@ -96,7 +96,9 @@ main {
     gap: 10px;
 }
 
-
+#testes{
+    background-color: #00329f;
+}
 .card-body {
     background: #FAC3DC;
     border-radius: 17px;
@@ -123,7 +125,9 @@ main {
   color: white;
 }
 
-
+#teste{
+    height: 10vh;
+}
 h5 {
     color: white;
 }
@@ -299,7 +303,7 @@ ul {
 
 
 .select2 {
-    width: 17%;
+    width: 15%;
     background-color: #4E9E65;
     color: white;
     border-radius:  20px;
@@ -308,25 +312,6 @@ ul {
 
 
 /*Pagina Doações*/
-
-
- .botao_adicionar {
-
-    background-color: #4E9E65;
-    color: white;
-    border-radius: 40px;
-}
-
-.botao_adicionar:hover {
-    background-color: #2f7744;
-    color: white;
-}
-
-.btn.botao_adicionar:active {
-  background-color: #2f7744;
-  color: white;
-}
-
 
 .card8 {
     background: #4E9E65;
