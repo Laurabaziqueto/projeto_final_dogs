@@ -27,19 +27,40 @@ def get_resgate():
     response = requests.get(url)
     return response.text
 
+#--------------------- ONGS --------------------------
 def get_ongs():
-    url = base_url + "/ongs"
-    response = requests.get(url)
-    return response.text
+    try:
+        url = f"{base_url}/listar_ongs"
+        response = requests.get(url)
+        return response.json()
+    except Exception as e:
+        print(e)
+        return {"error": str(e)}
+
+def post_ongs(nome, chave_pix):
+    try:
+        url = f"{base_url}/animal/cadastrar"
+        dados = {
+            "nome": nome,
+            "chave_pix": chave_pix,
+
+        }
+        response = requests.post(url, json=dados)
+        return response.status_code
+    except Exception as e:
+        print(e)
+        return {"error": str(e)}
+
+
 # ---------------------- LOGIN ----------------------
 def post_login(cpf, senha):
     try:
         url = f"{base_url}/login"
         dados = {
             "cpf": cpf,
-            "senha": senha,
+            "senha": senha
         }
-        response = requests.post(url, data=dados)
+        response = requests.post(url, json=dados)
         return response
     except Exception as e:
         print(e)
@@ -55,10 +76,11 @@ def get_usuarios():
         print(e)
         return {"error": str(e)}
 
-def post_usuario(nome, email, senha, telefone, cpf):
+def post_usuario(nome, telefone, email, senha, cpf):
     try:
         url = f"{base_url}/usuario/cadastrar"
         dados = {
+
             "nome": nome,
             "telefone": telefone,
             "email": email,
@@ -79,7 +101,7 @@ def editar_usuario(id_usuario, nome, email, senha):
             "form_email": email,
             "form_senha": senha,
         }
-        response = requests.post(url, data=dados)
+        response = requests.post(url, json=dados)
         return response.status_code
     except Exception as e:
         print(e)
@@ -103,7 +125,7 @@ def post_animal(nome_animal, raca, idade):
             "raca": raca,
             "idade": idade,
         }
-        response = requests.post(url, data=dados)
+        response = requests.post(url, json=dados)
         return response.status_code
     except Exception as e:
         print(e)
@@ -117,7 +139,7 @@ def editar_animal(id_animal, nome_animal, raca, idade):
             "form_raca": raca,
             "form_idade": idade,
         }
-        response = requests.post(url, data=dados)
+        response = requests.post(url, json=dados)
         return response.status_code
     except Exception as e:
         print(e)
@@ -169,7 +191,7 @@ def post_voluntario(nome, cpf, telefone, data_nascimento, email):
             "data_nascimento": data_nascimento,
             "email": email
         }
-        response = requests.post(url, data=dados)
+        response = requests.post(url, json=dados)
         return response.status_code
     except Exception as e:
         print(e)
@@ -183,7 +205,7 @@ def editar_voluntario(id_voluntario, nome, cpf, data_nascimento):
             "form_cpf": cpf,
             "form_data_nascimento": data_nascimento
         }
-        response = requests.post(url, data=dados)
+        response = requests.post(url, json=dados)
         return response.status_code
     except Exception as e:
         print(e)
