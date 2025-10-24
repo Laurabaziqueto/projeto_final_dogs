@@ -717,10 +717,22 @@ button {
 }
 
 
-.flash-error {
-  background-color: #f8d7da;
-  color: #721c24;
-  padding: 10px;
-  border-radius: 5px;
-  margin: 10px 0;
+.flash-acerto {
+  background-color: #1e7034;
+  color: white;
+  width: 200px;
+  padding: 9px;
+  border-radius: 20px;
+  box-shadow:  5px 3px 5px rgba(0, 0, 0, 0.3);
 }
+
+
+.flash-error {
+  background-color: #e488a9;
+  color: white;
+  width: 200px;
+  padding: 9px;
+  border-radius: 20px;
+  box-shadow:  5px 3px 5px rgba(0, 0, 0, 0.3);
+}
+

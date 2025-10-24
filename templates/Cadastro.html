@@ -11,15 +11,15 @@
     <div class="card">
         <h1>Cadastro</h1>
 
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <div class="flash-error">
-                    {% for message in messages %}
-                        {{ message }}
-                    {% endfor %}
-                </div>
-            {% endif %}
-        {% endwith %}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="flash-acerto">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
 
 
         <form action="{{url_for('cadastrar_usuario')}}" method="post">
