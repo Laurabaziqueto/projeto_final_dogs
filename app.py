@@ -26,7 +26,7 @@ def login():
             flash('Login bem-sucedido!', 'success')
             return redirect(url_for('pagina_inicial'))
         else:
-            flash('Email ou senha inválidos.', 'danger')
+            flash('Usuario senha inválidos.', 'danger')
             return redirect(url_for('login'))
 
     return render_template('Pagina_login.html')
@@ -40,8 +40,6 @@ def cadastrar_usuario():
         email = request.form.get('email')
         senha = request.form.get('senha')
         cpf = request.form.get('cpf')
-
-
         # enviar os dados para a API
         resultado = post_usuario(nome, telefone, email, senha, cpf)
 
