@@ -1,12 +1,17 @@
 from flask import Flask, request, jsonify, flash, url_for, render_template, redirect, session
 from select import select
 
-from routes import *
+from routes import post_login, post_ongs, post_voluntario, post_usuario
+
 app = Flask(__name__)
 app.secret_key = "sua_chave_secreta"
+
+
 @app.route('/')
 def index():
     return render_template('Pagina_inicial.html')
+
+
 # ---------------------- LOGIN ----------------------
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -21,8 +26,8 @@ def login():
         # verificar se deu sucesso
         if resultado.status_code == 200:
             # salvar na session id e nome do usuario
-            session['id_usuario'] = resultado.json()['id_usuario']
-            session['usuario_nome'] = resultado.json()['nome']
+            session['usuario_id'] = resultado.json()['usuario']['id_usuario']
+            session['usuario_nome'] = resultado.json()['usuario']['nome']
             flash('Login bem-sucedido!', 'success')
             return redirect(url_for('pagina_inicial'))
         else:
@@ -30,6 +35,7 @@ def login():
             return redirect(url_for('login'))
 
     return render_template('Pagina_login.html')
+
 
 #  ---------------------- CADASTRAR USUÁRIO ----------------------
 @app.route('/usuario/cadastrar', methods=['GET', 'POST'])
@@ -52,18 +58,22 @@ def cadastrar_usuario():
 
     return render_template('Cadastro.html')
 
+
 #  ---------------------- PAGÍNA INICIAL ----------------------
 @app.route('/pagina_inicial', methods=['GET'])
 def pagina_inicial():
     return render_template('Paginainicial.html')
 
+
 @app.route('/pagina_doacoes', methods=['GET'])
 def pagina_doacoes():
     return render_template('pagina_doacao.html')
 
-@app.route('/doacoes_realizada ',methods=['GET'])
+
+@app.route('/doacoes_realizada ', methods=['GET'])
 def doacoes_realizada():
     return render_template('adoacoes_realizada.html')
+
 
 @app.route('/voluntario/cadastrar', methods=['GET', 'POST'])
 def cadastrar_voluntario():
@@ -76,7 +86,7 @@ def cadastrar_voluntario():
         cpf = request.form.get('cpf')
 
         # enviar os dados para a API
-        resultado = post_voluntario(nome, telefone,data_nascimento, email, senha, cpf)
+        resultado = post_voluntario(nome, telefone, data_nascimento, email, senha, cpf)
 
         # verificar se deu sucesso
         if resultado.status_code == 200:
@@ -87,34 +97,56 @@ def cadastrar_voluntario():
 
     return render_template('cadastro_voluntario.html')
 
+
 @app.route('/voluntario', methods=['GET'])
 def voluntario():
     return render_template('Pagina_Voluntario.html')
+
 
 @app.route('/resgate', methods=['GET'])
 def resgate():
     return render_template('resgate_denuncia.html')
 
+
 # Rota para adicionar a ONG
 @app.route('/ongs', methods=['GET'])
-def ongs():
+def cadastrar_ongs():
+    if request.method == 'POST':
+        nome = request.form.get('nome')
+        chave_pix = request.form.get('chave_pix')
+
+        # enviar os dados para a API
+        resultado = post_ongs(nome, chave_pix)
+
+        # verificar se deu sucesso
+        if resultado == 201:
+            flash('ong cadastrada!', 'success')
+        else:
+            flash('erro pra cadastrar ong.', 'danger')
+            return redirect(url_for('cadastrar_usuario'))
+
     return render_template('ongs.html')
+
+
 
 @app.route('/pagamento', methods=['GET'])
 def pagamento():
     return render_template('pagamento_pix.html')
+
 
 # ----------------------PAGINA ADOTAR --------------------------
 @app.route('/pagina_adotar', methods=['GET'])
 def pagina_adotar():
     return render_template('Pagina_Adotar.html')
 
+
 # ----------------------INFORMAÇÃO DE ADOÇÃO--------------------------
 @app.route('/informacao', methods=['GET'])
 def informacao():
     return render_template('informacao.html')
 
- # ---------------------- CADASTRAR ANIMAL ----------------------
+
+# ---------------------- CADASTRAR ANIMAL ----------------------
 @app.route('/animal/cadastrar', methods=['GET', 'POST'])
 def cadastro_animal():
     if request.method == 'POST':
@@ -132,5 +164,6 @@ def cadastro_animal():
             return redirect(url_for('cadastro_animal'))
     return render_template('cadastro_animal.html')
 
+
 if __name__ == "__main__":
-    app.run(debug=True,host="0.0.0.0",port=5001)
+    app.run(debug=True, host="0.0.0.0", port=5001)
