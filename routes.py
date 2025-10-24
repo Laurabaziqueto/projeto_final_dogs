@@ -1,17 +1,46 @@
 import requests
 
-base_url = "http://10.135.233.6:5002"
+base_url = "http://10.135.233.133:5000"
 
+def get_pagina_inicial():
+    url = base_url + "/pagina_inicial"
+    response = requests.get(url)
+    return response.text
+
+def get_pagina_doacoes():
+    url = base_url + "/pagina_doacoes"
+    response = requests.get(url)
+    return response.text
+
+def get_doacoes_realizada():
+    url = base_url + "/doacoes_realizada"
+    response = requests.get(url)
+    return response.text
+
+def get_voluntario():
+    url = base_url + "/voluntaria"
+    response = requests.get(url)
+    return response.text
+
+def get_resgate():
+    url = base_url + "/resgate"
+    response = requests.get(url)
+    return response.text
+
+def get_ongs():
+    url = base_url + "/ongs"
+    response = requests.get(url)
+    return response.text
 # ---------------------- LOGIN ----------------------
-def post_login(email, senha):
+def post_login(cpf, senha):
     try:
         url = f"{base_url}/login"
         dados = {
-            "email": email,
+            "cpf": cpf,
             "senha": senha,
         }
         response = requests.post(url, data=dados)
-        return response.text
+        return response
     except Exception as e:
         print(e)
         return {"error": str(e)}
@@ -36,7 +65,7 @@ def post_usuario(nome, email, senha, telefone, cpf):
             "senha": senha,
             "cpf": cpf,
         }
-        response = requests.post(url, data=dados)
+        response = requests.post(url, json=dados)
         return response.status_code
     except Exception as e:
         print(e)

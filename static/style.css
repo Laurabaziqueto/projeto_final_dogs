@@ -1,11 +1,9 @@
- /*Geral*/
+/*Geral*/
 
 * {
     margin: 0;
     padding: 0;
 }
-
-
 
 
 .topo-alt {
@@ -93,9 +91,7 @@ main {
     gap: 10px;
 }
 
-#testes{
-    background-color: #00329f;
-}
+
 .card-body {
     background: #FAC3DC;
     border-radius: 17px;
@@ -122,29 +118,27 @@ main {
   color: white;
 }
 
-#teste{
-    height: 10vh;
-}
+
 h5 {
     color: white;
 }
 
 
-.fundo {
-    height: 100vh;
-    overflow: hidden;
-
+.main0 {
+    background-color: #F3CDDE;
+    height:  100vh;
+    overflow:  hidden;
 }
 
 
 
 /*Pagina login*/
 
-.card-body21 {
+.card-body3 {
 /* fallback for old browsers */
     background: #DAEFD5;
     color: white;
-    width: 100vw;
+
     border-radius: 6px;
     border: 6px solid #EBA8C6;
 }
@@ -247,6 +241,7 @@ h5 {
    border-radius: 5px;
 }
 
+
 .button2 {
     background-color: #FAC3DC;
     color: #E883B0;
@@ -268,6 +263,7 @@ h5 {
 p {
     margin: 2px;
 }
+
 
 ul {
     list-style-type: none;
@@ -343,6 +339,29 @@ ul {
      height: 30%;
      width: 70%;
      margin-left: 15px;
+}
+
+
+
+/*Pagina Pagamentos*/
+
+.tabela {
+      border: 5px solid #98CE89;
+
+    }
+
+.table th {
+  background: #F9E7EF;
+  color: #d18aa5;
+  overflow: hidden;
+
+}
+
+.table td {
+  background: #F9E7EF;
+  color: #daa8bc;
+  overflow: hidden;
+
 }
 
 
