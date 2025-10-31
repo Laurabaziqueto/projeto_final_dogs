@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, flash, url_for, render_template, redirect, session
 from select import select
 
-from routes import post_login, post_ongs, post_voluntario, post_usuario
+from routes import post_usuario, post_login, post_voluntario, post_ongs, post_animal
 
 app = Flask(__name__)
 app.secret_key = "sua_chave_secreta"
@@ -51,9 +51,9 @@ def cadastrar_usuario():
 
         # verificar se deu sucesso
         if resultado == 201:
-            flash('Login bem-sucedido!', 'success')
+            flash('cadastro bem-sucedido!', 'success')
         else:
-            flash('erro usuario.', 'danger')
+            flash('erro no cadastro.', 'danger')
             return redirect(url_for('cadastrar_usuario'))
 
     return render_template('Cadastro.html')
@@ -144,6 +144,10 @@ def pagina_adotar():
 @app.route('/informacao', methods=['GET'])
 def informacao():
     return render_template('informacao.html')
+
+@app.route('/animais', methods=['GET'])
+def animais():
+    return render_template('Pagina_Adotar.html')
 
 
 # ---------------------- CADASTRAR ANIMAL ----------------------

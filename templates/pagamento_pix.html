@@ -7,7 +7,15 @@
     <link rel="stylesheet" href="../static/base.css">
 </head>
 <body>
-
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="flash-error">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
 <header class="topo-alt">
     <div class="logo-texto-alt">
         <img src="/logo1.png" width="100" height="100" alt="Logo Brilho no Olhar Pet">
@@ -17,6 +25,7 @@
         <button><img src="/personagem.png" width="50" height="50" alt="Perfil"></button>
     </div>
 </header>
+
 
 <div class="container20">
     <div class="card20">
@@ -38,9 +47,8 @@
         <div class="card-right20">
             <img class="img-20" src="./qrcode.png" alt="QR Code Pix">
             <button class="btn-transferencia">Caso Seja Transferência Bancária ▸</button>
-            <button class="btn-doar">Doar</button>
+            <a href="{{url_for('pagina_doacoes')}}" class="btn-doar">Doar</a>
         </div>
-
     </div>
 </div>
 
