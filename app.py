@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.secret_key = "sua_chave_secreta"
 @app.route('/')
 def index():
-    return render_template('Cadastro.html')
+    return render_template('Pagina_login.html')
 # ---------------------- LOGIN ----------------------
 @app.route('/login', methods=['GET', 'POST'])
 def login():

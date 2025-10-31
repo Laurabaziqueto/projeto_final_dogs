@@ -21,23 +21,22 @@
 <body>
 <main class="fundo" style="background-color: #F3CDDE;">
 
-    <div class="container1 py-3 ">
+    <div class="container1 py-3 h-100">
         <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-xl-10">
-                <div class="card1 rounded-3 row g-10 shadow my-5">
-
+            <div class="col-10">
+                <div class="card1 row g-10 shadow my-5">
                     <div class="container2 col-lg-6 d-flex flex-column justify-content-start align-items-center">
-                        <div class="text-center">
-                            <img src="../static/Logo.png" style=" height: 160px" alt="logo">
+                        <div class="text-center inicial-container">
+                            <img src="../static/Logo.png" alt="logo">
                         </div>
                         <div class="card-body d-flex flex-column justify-content-center align-items-center">
 
                             <h5>Junte-se a nós!</h5>
 
                             <div class="text-center pt-3">
-                                <a
-                                        class="btn btn-block fa-lg button_login mb-2"
-                                        href=" {{url_for('cadastrar_usuario')}} "> Criar conta
+                                <a class="btn btn-block fa-lg button_login mb-2"
+                                   href=" {{url_for('cadastrar_usuario')}} ">
+                                    Criar conta
                                 </a>
                             </div>
 

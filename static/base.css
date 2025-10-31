@@ -71,7 +71,7 @@ body {
 }
 
 .form-group input::placeholder {
-    color: #eee;
+    color: #6fbf7f;
 }
 
 
@@ -736,3 +736,16 @@ button {
   box-shadow:  5px 3px 5px rgba(0, 0, 0, 0.3);
 }
 
+
+h1 {
+    font-family: "Purple purse";
+    text-shadow: 0 20px 20px lightgrey;
+    display: flex;
+    justify-content: center;
+}
+
+.purple-purse-regular {
+    font-family: "Purple Purse", serif;
+    font-weight: 400;
+    font-style: normal;
+}

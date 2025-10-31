@@ -14,44 +14,50 @@
 </head>
 <body>
 <main class="fundo" style="background-color: #F3CDDE;">
-    <div class="container3 d-flex justify-content-center align-items-center py-5 px-5">
-        <div class="row d-flex justify-content-center align-items-center card4 mx-4">
+    <div class="container3 d-flex justify-content-center align-items-center space p-4 px-5">
+        <div class="card4 row d-flex justify-content-center align-items-center my-4 ">
             <div class="col-xl-5 my-4">
                 <div class="card5 shadow-2-strong mx-5">
 
                     <div class="card-body3 p-3 mx-5 my-4 shadow text-left">
 
-{% with messages = get_flashed_messages() %}
-    {% if messages %}
-        <div class="flash-error">
-            {% for message in messages %}
-            {{ message }}
-            {% endfor %}
-        </div>
-    {% endif %}
-{% endwith %}
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <div class="flash-error">
+                                {% for message in messages %}
+                                {{ message }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        {% endwith %}
 
-<!-- Centralizar o conteúdo -->
-<div class="d-flex justify-content-center align-items-center vh-100">
-    <div class="login-container text-center">
-        <img src="../static/Logo.png" class="logo" alt="Logo Brilho no Olhar Pet">
-        <form action="{{ url_for('login') }}" method="POST">
-            <div class="form-group text-start mb-3">
-                <label for="cpf">CPF</label>
-                <input type="number" name="cpf" id="cpf" class="form-control" required>
-            </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="login-container text-center">
+                                <img src="../static/Logo.png" class="logo" alt="Logo Brilho no Olhar Pet">
 
-                        <div data-mdb-input-init class="form-outline mb-4">
-                            <label class="form-label" for=" ">Senha</label>
-                            <input type="password" id=" " class="form-control form-control-lg"/>
-                        </div>
+                                <form action="{{ url_for('login') }}" method="POST">
 
-                        <div class="div-botoes pt-1 mb-3 pb-1 row g-0 w-25">
+                                    <div class="form-group text-start mb-3">
+                                        <label for="cpf">CPF</label>
+                                        <input type="number" id="cpf" name="cpf">
+                                    </div>
 
-                            <a href="{{url_for('pagina_inicial')}}" class=" button_sing btn px-2 mb-2">Logar</a>
+                                    <div class="form-group text-start mb-4">
+                                        <label for="senha">Senha</label>
+                                        <input type="password" id="senha" name="senha">
+                                    </div>
 
-                            <a href="{{url_for('index')}}" class=" botao_voltar btn d-flex px-2">
-                                <i class="bi bi-arrow-left-short"></i>Voltar</a>
+                                    <div class="div-botoes pt-1 mb-3 pb-1 row g-0 w-25">
+
+                                        <a href="{{url_for('pagina_inicial')}}"
+                                           class=" button_sing btn px-2 mb-2">Logar</a>
+
+                                        <a href="{{url_for('index')}}" class=" botao_voltar btn d-flex px-2">
+                                            <i class="bi bi-arrow-left-short"></i>Voltar</a>
+                                    </div>
+                                </form>
+
+                            </div>
                         </div>
                     </div>
                 </div>
