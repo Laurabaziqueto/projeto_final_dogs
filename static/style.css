@@ -96,9 +96,7 @@ main {
     gap: 10px;
 }
 
-#testes{
-    background-color: #00329f;
-}
+
 .card-body {
     background: #FAC3DC;
     border-radius: 17px;
@@ -125,9 +123,7 @@ main {
   color: white;
 }
 
-#teste{
-    height: 10vh;
-}
+
 h5 {
     color: white;
 }
