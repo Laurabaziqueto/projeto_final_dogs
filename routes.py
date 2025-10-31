@@ -1,6 +1,6 @@
 import requests
 
-base_url = "http://10.135.233.133:5000"
+base_url = "http://10.135.233.139:5000"
 
 def get_pagina_inicial():
     url = base_url + "/pagina_inicial"
@@ -110,7 +110,7 @@ def editar_usuario(id_usuario, nome, email, senha):
 # ---------------------- ANIMAIS ----------------------
 def get_animais():
     try:
-        url = f"{base_url}/animal"
+        url = f"{base_url}/listar_animais"
         response = requests.get(url)
         return response.json()
     except Exception as e:
