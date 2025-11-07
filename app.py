@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.secret_key = "sua_chave_secreta"
 @app.route('/')
 def index():
-    return render_template('Cadastro.html')
+    return render_template('Pagina_inicial.html')
 # ---------------------- LOGIN ----------------------
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -15,21 +15,19 @@ def login():
         # Obter os dados necessarios para enviar para a API
         cpf = request.form['cpf']
         senha = request.form['senha']
-
         # envio para a api
         resultado = post_login(cpf, senha)
-
         # verificar se deu sucesso
         if resultado.status_code == 200:
             # salvar na session id e nome do usuario
-            session['id_usuario'] = resultado.json()['id_usuario']
-            session['usuario_nome'] = resultado.json()['nome']
+            session['id_usuario'] = resultado.json()['usuario']
+            session['usuario_cpf'] = resultado.json()['cpf']
+            session['usuario_senha'] = resultado.json()['senha']
             flash('Login bem-sucedido!', 'success')
             return redirect(url_for('pagina_inicial'))
         else:
             flash('Usuario senha inválidos.', 'danger')
             return redirect(url_for('login'))
-
     return render_template('Pagina_login.html')
 
 #  ---------------------- CADASTRAR USUÁRIO ----------------------
