@@ -22,13 +22,15 @@
                 <div class="card5 shadow-2-strong mx-5">
                     <div class="card-body3 p-4 text-center">
 
-                        {% with messages = get_flashed_messages() %}
+                        {% with messages = get_flashed_messages(with_categories=true) %}
                             {% if messages %}
-                                <div class="flash-error">
-                                    {% for message in messages %}
-                                        {{ message }}
-                                    {% endfor %}
-                                </div>
+                                {% for category, message in messages %}
+                                    {% if category == 'error' %}
+                                        <div class="flash-message error">{{ message }}</div>
+                                    {% elif category == 'success' %}
+                                        <div class="flash-message success">{{ message }}</div>
+                                    {% endif %}
+                                {% endfor %}
                             {% endif %}
                         {% endwith %}
 

@@ -28,7 +28,7 @@ def login():
             flash('Login bem-sucedido!', 'success')
             return redirect(url_for('pagina_inicial'))
         else:
-            flash('Usuario senha inválidos.', 'danger')
+            flash('Usuario senha inválidos.', 'error')
             return redirect(url_for('login'))
 
     return render_template('Pagina_login.html')
@@ -49,7 +49,7 @@ def cadastrar_usuario():
         if resultado == 201:
             flash('cadastro bem-sucedido!', 'success')
         else:
-            flash('erro no cadastro.', 'danger')
+            flash('erro no cadastro.', 'error')
             return redirect(url_for('cadastrar_usuario'))
 
     return render_template('Cadastro.html')
