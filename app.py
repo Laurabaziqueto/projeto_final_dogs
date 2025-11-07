@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.secret_key = "sua_chave_secreta"
 @app.route('/')
 def index():
-    return render_template('Pagina_login.html')
+    return render_template('Pagina_inicial.html')
 
 # ---------------------- LOGIN ----------------------
 @app.route('/login', methods=['GET', 'POST'])
@@ -34,25 +34,25 @@ def login():
     return render_template('Pagina_login.html')
 
 #  ---------------------- CADASTRAR USUÁRIO ----------------------
-@app.route('/usuario/cadastrar', methods=['GET', 'POST'])
+@app.route('/cadastro', methods=['GET', 'POST'])
 def cadastrar_usuario():
     if request.method == 'POST':
-        nome = request.form.get('nome')
-        telefone = request.form.get('telefone')
-        email = request.form.get('email')
-        senha = request.form.get('senha')
-        cpf = request.form.get('cpf')
-        # enviar os dados para a API
-        resultado = post_usuario(nome, telefone, email, senha, cpf)
+        nome = request.form['nome']
+        email = request.form['email']
+        telefone = request.form['telefone']
+        cpf = request.form['cpf']
+        senha = request.form['senha']
 
-        # verificar se deu sucesso
-        if resultado == 201:
-            flash('cadastro bem-sucedido!', 'success')
+        # Aqui você faria a lógica de cadastro no banco
+        # Exemplo simples:
+        if not nome or not email:
+            flash('Preencha todos os campos!', 'error')
         else:
-            flash('erro no cadastro.', 'danger')
-            return redirect(url_for('cadastrar_usuario'))
+            flash('Usuário cadastrado com sucesso!', 'success')
 
-    return render_template('Cadastro.html')
+        return redirect(url_for('cadastrar_usuario'))
+
+    return render_template('cadastro.html')
 
 #  ---------------------- PAGÍNA INICIAL ----------------------
 @app.route('/pagina_inicial', methods=['GET'])

@@ -563,7 +563,7 @@ p {
 }
 
 .btn-voltar15 {
-   background: #FFB9D8;
+    background: #FFB9D8;
     color: white;
 }
 
@@ -603,6 +603,7 @@ p {
     background: #f6b6c8;
     border-radius: 15px;
     padding: 13px;
+    width: 600px;
 }
 
 .card-left20 h2 {
@@ -685,7 +686,6 @@ button {
 }
 
 
-
 .botao_voltar21 {
     background: #1DA66D;
     color: white;
@@ -698,6 +698,7 @@ button {
     color: white;
 
 }
+
 .button_sing21 {
     background: #71B384;
     border-color: #4E9E65;
@@ -705,7 +706,7 @@ button {
 }
 
 .card-body21 {
-/* fallback for old browsers */
+    /* fallback for old browsers */
     background: #DAEFD5;
     border-radius: 6px;
     border: 6px solid #EBA8C6;
@@ -719,23 +720,23 @@ button {
 
 
 .flash-message.success {
-  background-color: #1e7034;
-  color: white;
-  width: 200px;
-  padding: 9px;
-  border-radius: 20px;
-  box-shadow:  5px 3px 5px rgba(0, 0, 0, 0.3);
+    background-color: #1e7034;
+    color: white;
+    width: 200px;
+    padding: 9px;
+    border-radius: 20px;
+    box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 
 .flash-message.error {
-  background-color: #e488a9;
-  color: white;
-  width: 200px;
-  padding: 9px;
-  border: 2px solid #d56c91;
-  border-radius: 20px;
-  box-shadow:  2px 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #e488a9;
+    color: white;
+    width: 200px;
+    padding: 9px;
+    border: 2px solid #d56c91;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -751,3 +752,15 @@ h1 {
     font-weight: 400;
     font-style: normal;
 }
+
+.btn-button2 {
+    background: #f6b6c8;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+
+
+
+
