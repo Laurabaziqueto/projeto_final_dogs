@@ -74,6 +74,10 @@ label {
     font-size: 1rem;
 }
 
+.form-group label{
+    text-shadow:  0 1px 3px darkgrey;
+}
+
 
 .botao_voltar {
     background: #1DA66D;
