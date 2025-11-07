@@ -20,7 +20,7 @@
 
 <header class="topo-alt">
     <div class="logo-texto-alt">
-        <img src="{{ url_for('static', filename='logo1.png') }}" width="100" height="100" alt="Logo Brilho no Olhar Pet">
+        <img src="/logo1.png" width="100" height="100" alt="Logo Brilho no Olhar Pet">
     </div>
     <h1>Pagamento - Via Pix</h1>
     <div class="perfil-alt">
@@ -36,8 +36,7 @@
         <!-- Coluna esquerda - formulário -->
         <div class="card-left20">
             <h2>Preencha seus dados</h2>
-
-            <form class="div_formulario" action="{{ url_for('pagamento') }}" method="POST">
+            <form class="div_formulario">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" required>
 

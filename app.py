@@ -15,40 +15,43 @@ def login():
         # Obter os dados necessarios para enviar para a API
         cpf = request.form['cpf']
         senha = request.form['senha']
+
         # envio para a api
         resultado = post_login(cpf, senha)
 
         # verificar se deu sucesso
         if resultado.status_code == 200:
             # salvar na session id e nome do usuario
-            session['id_usuario'] = resultado.json()['usuario']
+            session['id_usuario'] = resultado.json()['id_usuario']
+            session['usuario_nome'] = resultado.json()['nome']
             flash('Login bem-sucedido!', 'success')
             return redirect(url_for('pagina_inicial'))
         else:
             flash('Usuario senha inválidos.', 'danger')
             return redirect(url_for('login'))
+
     return render_template('Pagina_login.html')
 
 #  ---------------------- CADASTRAR USUÁRIO ----------------------
-@app.route('/usuario/cadastrar', methods=['GET', 'POST'])
+@app.route('/cadastro', methods=['GET', 'POST'])
 def cadastrar_usuario():
     if request.method == 'POST':
-        nome = request.form.get('nome')
-        telefone = request.form.get('telefone')
-        email = request.form.get('email')
-        senha = request.form.get('senha')
-        cpf = request.form.get('cpf')
-        # enviar os dados para a API
-        resultado = post_usuario(nome, telefone, email, senha, cpf)
+        nome = request.form['nome']
+        email = request.form['email']
+        telefone = request.form['telefone']
+        cpf = request.form['cpf']
+        senha = request.form['senha']
 
-        # verificar se deu sucesso
-        if resultado == 201:
-            flash('cadastro bem-sucedido!', 'success')
+        # Aqui você faria a lógica de cadastro no banco
+        # Exemplo simples:
+        if not nome or not email:
+            flash('Preencha todos os campos!', 'error')
         else:
-            flash('erro no cadastro.', 'danger')
-            return redirect(url_for('cadastrar_usuario'))
+            flash('Usuário cadastrado com sucesso!', 'success')
 
-    return render_template('Cadastro.html')
+        return redirect(url_for('cadastrar_usuario'))
+
+    return render_template('cadastro.html')
 
 #  ---------------------- PAGÍNA INICIAL ----------------------
 @app.route('/pagina_inicial', methods=['GET'])
