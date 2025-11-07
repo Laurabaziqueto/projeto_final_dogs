@@ -5,9 +5,11 @@ from routes import post_usuario, post_login, post_voluntario, post_ongs, post_an
 
 app = Flask(__name__)
 app.secret_key = "sua_chave_secreta"
+
 @app.route('/')
 def index():
-    return render_template('Pagina_login.html')
+    return render_template('Cadastro.html')
+
 # ---------------------- LOGIN ----------------------
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -27,7 +29,7 @@ def login():
             flash('Login bem-sucedido!', 'success')
             return redirect(url_for('pagina_inicial'))
         else:
-            flash('Usuario senha inválidos.', 'danger')
+            flash('Usuario senha inválidos.', 'error')
             return redirect(url_for('login'))
 
     return render_template('Pagina_login.html')
@@ -41,14 +43,15 @@ def cadastrar_usuario():
         email = request.form.get('email')
         senha = request.form.get('senha')
         cpf = request.form.get('cpf')
-        # enviar os dados para a API
-        resultado = post_usuario(nome, telefone, email, senha, cpf)
 
-        # verificar se deu sucesso
+        resultado = post_usuario(nome, telefone, email, senha, cpf)
+        print("Resultado da API:", resultado)
+
         if resultado == 201:
-            flash('cadastro bem-sucedido!', 'success')
+            flash('Cadastro bem‑sucedido!', 'success')
+            return redirect(url_for('cadastrar_usuario'))
         else:
-            flash('erro no cadastro.', 'danger')
+            flash('Erro no cadastro.', 'error')
             return redirect(url_for('cadastrar_usuario'))
 
     return render_template('Cadastro.html')
@@ -83,7 +86,7 @@ def cadastrar_voluntario():
         if resultado.status_code == 200:
             flash('Login bem-sucedido!', 'success')
         else:
-            flash('erro usuario.', 'danger')
+            flash('erro usuario.', 'error')
             return redirect(url_for('cadastrar_voluntario'))
 
     return render_template('cadastro_voluntario.html')

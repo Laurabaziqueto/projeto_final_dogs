@@ -6,7 +6,7 @@
     <title>Cadastro - Brilho no Olhar Pet</title>
     <link rel="stylesheet" href="../static/base.css">
 
-     <!--Fonte-->
+    <!--Fonte-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Purple+Purse&display=swap" rel="stylesheet">
@@ -16,15 +16,17 @@
     <div class="card">
         <h1>Cadastro</h1>
 
-{% with messages = get_flashed_messages() %}
-    {% if messages %}
-        <div class="flash-acerto">
-            {% for message in messages %}
-                {{ message }}
-            {% endfor %}
-        </div>
-    {% endif %}
-{% endwith %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    {% if category == 'error' %}
+                        <div class="flash-message error">{{ message }}</div>
+                    {% elif category == 'success' %}
+                        <div class="flash-message success">{{ message }}</div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
 
 
         <form action="{{url_for('cadastrar_usuario')}}" method="post">

@@ -717,7 +717,7 @@ button {
 }
 
 
-.flash-acerto {
+.flash-message.success {
   background-color: #1e7034;
   color: white;
   width: 200px;
@@ -727,13 +727,14 @@ button {
 }
 
 
-.flash-error {
+.flash-message.error {
   background-color: #e488a9;
   color: white;
   width: 200px;
   padding: 9px;
+  border: 2px solid #d56c91;
   border-radius: 20px;
-  box-shadow:  5px 3px 5px rgba(0, 0, 0, 0.3);
+  box-shadow:  2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 
