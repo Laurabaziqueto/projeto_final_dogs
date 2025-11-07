@@ -2,44 +2,47 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro Animal</title>
-    <link rel="stylesheet" href="../static/base.css">
+    <title>Cadastro de Animal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
 </head>
 <body>
 
-
 <header class="topo-alt">
-    <div class="logo-texto-alt"><img src="/logo1.png" width="100" height="100"></div>
-    <h1>Cadastro Animal</h1>
+    <div class="logo-texto-alt">
+        <img src="{{ url_for('static', filename='logo1.png') }}" width="100" height="100" alt="Logo">
+    </div>
+    <h1>Cadastro de Animal</h1>
     <div class="perfil-alt">
-        <botton><img src="/personagem.png" width="50" height="50" alt=""></botton>
+        <button type="button">
+            <img src="{{ url_for('static', filename='personagem.png') }}" width="50" height="50" alt="Perfil">
+        </button>
     </div>
 </header>
-
 
 <main class="container1">
     <div class="card-alt">
         <h2 class="titulo-card-alt">Preencha os dados abaixo</h2>
 
-        <form>
-            <input type="text" placeholder="Nome">
-            <input type="Idade" placeholder="Idade">
-            <input type="text" placeholder="Raça">
+        <!-- Formulário principal -->
+        <form action="/cadastro_animal" method="POST">
+            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="number" name="idade" placeholder="Idade" min="0" required>
+            <input type="text" name="raca" placeholder="Raça" required>
 
-            <select style="background-color: #A8CBA4; color: #555; border-radius: 10px; padding: 8px; border: none; width: 525px;">
+            <select name="sexo" required
+                style="background-color: #A8CBA4; color: #555; border-radius: 10px; padding: 8px; border: none; width: 525px;">
                 <option disabled selected>Sexo</option>
-                <option>Macho</option>
-                <option>Fêmea</option>
+                <option value="Macho">Macho</option>
+                <option value="Fêmea">Fêmea</option>
             </select>
 
-            <form action="/receberlink" method="post">
-                <label for="url">Adicione o link da Imagem:</label>
-                <input type="url" id="url" name="url" placeholder="https://exemplo.com" required>
-            </form>
-             <a href="{{url_for('pagina_adotar')}}" class="btn button2 mt-2" style="width: 13rem">Voltar</a>
-            <button type="submit" class="bnt-alt"> concluido</button>
+            <label for="url">Adicione o link da Imagem:</label>
+            <input type="url" id="url" name="url" placeholder="https://exemplo.com" required>
 
+            <button type="submit" class="bnt-alt">Concluir</button>
         </form>
+
+        <a href="{{ url_for('pagina_adotar') }}" class="btn button2 mt-2" style="width: 13rem;">Voltar</a>
     </div>
 </main>
 
