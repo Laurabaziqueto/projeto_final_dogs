@@ -21,8 +21,6 @@ def login():
         if resultado.status_code == 200:
             # salvar na session id e nome do usuario
             session['id_usuario'] = resultado.json()['usuario']
-            session['usuario_cpf'] = resultado.json()['cpf']
-            session['usuario_senha'] = resultado.json()['senha']
             flash('Login bem-sucedido!', 'success')
             return redirect(url_for('pagina_inicial'))
         else:
