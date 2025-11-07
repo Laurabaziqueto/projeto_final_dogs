@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.secret_key = "sua_chave_secreta"
 @app.route('/')
 def index():
-    return render_template('Pagina_inicial.html')
+    return render_template('Cadastro.html')
 # ---------------------- LOGIN ----------------------
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -17,6 +17,7 @@ def login():
         senha = request.form['senha']
         # envio para a api
         resultado = post_login(cpf, senha)
+
         # verificar se deu sucesso
         if resultado.status_code == 200:
             # salvar na session id e nome do usuario

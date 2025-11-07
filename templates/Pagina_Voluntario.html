@@ -2,134 +2,95 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Página de Voluntário</title>
+    <title>Pagina de Voluntario</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
           crossorigin="anonymous">
 
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-    <!-- Fonte -->
+    <!--Fonte-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Purple+Purse&display=swap" rel="stylesheet">
-</head>
 
+</head>
 <body>
 <div class="container5 d-flex flex-column">
 
-    <!-- Cabeçalho -->
-    <header class="topo-alt d-flex align-items-center justify-content-between px-4 py-2">
-        <div class="logo-texto-alt">
-            <img src="{{ url_for('static', filename='Logo.png') }}" width="100" height="80" alt="Logo Brilho no Olhar Pet">
-        </div>
-        <h1>Seja um Voluntário</h1>
+    <header class="topo-alt">
+        <div class="logo-texto-alt"><img src="../static/Logo.png" width="100" height="80"></div>
+        <h1>Seja um Voluntario</h1>
         <div class="perfil-alt">
-            <button type="button" class="btn btn-light border-0 p-0">
-                <img src="{{ url_for('static', filename='personagem.png') }}" width="50" height="50" alt="Perfil">
-            </button>
+            <botton><img src="/personagem.png" width="50" height="50" alt=""></botton>
         </div>
     </header>
 
-    <!-- Conteúdo principal -->
-    <main class="d-flex flex-row justify-content-center align-items-start py-4 px-3">
 
-        <!-- Lateral Esquerda (Filtros + Botão Voltar) -->
-        <aside class="d-flex flex-column align-items-start gap-3 me-5" style="min-width: 220px;">
+    <main class="d-flex flex-column justify-content-center">
 
-            <!-- Botão Voltar -->
-            <a class="btn btn-secondary d-flex align-items-center mb-2" href="{{ url_for('pagina_inicial') }}">
-                <i class="bi bi-arrow-left-short me-1"></i> Voltar
-            </a>
+        <div class="div-botoes d-flex justify-content-center ">
 
-            <!-- Select Gênero -->
-            <div class="input-group">
-                <span class="input-group-text bg-light border-end-0">
-                    <i class="bi bi-gender-ambiguous text-secondary"></i>
-                </span>
-                <select class="form-select border-start-0 select2" aria-label="Selecione o gênero">
-                    <option selected disabled>Gênero</option>
-                    <option value="femea">Fêmea</option>
-                    <option value="macho">Macho</option>
+            <a class="botao_voltar btn" href="{{url_for('pagina_inicial')}}">
+                <i class="bi bi-arrow-left-short"></i>Voltar</a>
+
+
+            <select class="select2 mx-2" id="">
+                <option value="femea">Fêmea</option>
+                <option value="macho">Macho</option>
+            </select>
+
+                <select class="select2" id="">
+                    <option value="femea">São Paulo</option>
+                    <option value="femea">Minas Gerais</option>
+                    <option value="macho">Rio de Janeiro</option>
+                    <option value="macho">Paraná</option>
+                    <option value="macho">Mato Grosso do Sul</option>
+                    <option value="macho">Goiás</option>
                 </select>
-            </div>
+        </div>
 
-            <!-- Select Estado -->
-            <div class="input-group">
-                <span class="input-group-text bg-light border-end-0">
-                    <i class="bi bi-geo-alt text-secondary"></i>
-                </span>
-                <select class="form-select border-start-0 select2" aria-label="Selecione o estado">
-                    <option selected disabled>Estado</option>
-                    <option value="sp">São Paulo</option>
-                    <option value="mg">Minas Gerais</option>
-                    <option value="rj">Rio de Janeiro</option>
-                    <option value="pr">Paraná</option>
-                    <option value="ms">Mato Grosso do Sul</option>
-                    <option value="go">Goiás</option>
-                </select>
-            </div>
+        <div class="div-cards2 d-flex justify-content-center align-items-center mt-5">
+            <div class="card7 d-flex flex-column justify-content-center align-items-center me-4" style="width: 20rem;">
 
-            <!-- Select Tipo de Animal -->
-            <div class="input-group">
-                <span class="input-group-text bg-light border-end-0">
-                    <i class="bi bi-paw text-secondary"></i>
-                </span>
-                <select class="form-select border-start-0 select2" aria-label="Selecione o animal">
-                    <option selected disabled>Animal</option>
-                    <option value="cachorro">Cachorro</option>
-                    <option value="gato">Gato</option>
-                    <option value="coelho">Coelho</option>
-                    <option value="passaro">Pássaro</option>
-                </select>
-            </div>
+                <div class="card-body7 mt-4 mx-1">
+                    <img src="../static/ong1.png" class="card-img-top mx-auto d-block mt-3 mb-2 rounded-4 shadow"
+                         style="height: 100px; width: 100px;">
 
-        </aside>
-
-        <!-- Parte Direita (Cards das ONGs) -->
-        <section class="div-cards2 d-flex justify-content-center align-items-start flex-wrap gap-4">
-
-            <div class="card7 d-flex flex-column justify-content-center align-items-center" style="width: 20rem;">
-                <div class="card-body7 mt-4 mx-1 text-center">
-                    <img src="{{ url_for('static', filename='ong1.png') }}"
-                         class="card-img-top mx-auto d-block mt-3 mb-2 rounded-4 shadow"
-                         alt="Ong 1" style="height: 100px; width: 100px;">
-
-                    <div class="card-text p-3">
+                    <div class="card-text text-center p-4 mx-3">
                         <p>
-                            Este é um exemplo de texto que descreve o conteúdo do card. Você pode escrever o que quiser aqui.
+                            Este é um exemplo de texto que descreve o conteúdo do card. Você pode escrever o que quiser
+                            aqui.
                         </p>
                     </div>
                 </div>
-                <a href="{{ url_for('cadastrar_voluntario') }}" class="btn button2 mt-2 mb-3" style="width: 13rem;">Voluntarie-se</a>
+                <a href="{{url_for('cadastrar_voluntario')}}" class="btn button2 mt-2" style="width: 13rem">Voluntaria-se</a>
             </div>
 
             <div class="card7 d-flex flex-column justify-content-center align-items-center" style="width: 20rem;">
-                <div class="card-body7 mt-4 mx-1 text-center">
-                    <img src="{{ url_for('static', filename='ong3.png') }}"
-                         class="card-img-top mx-auto d-block mt-3 mb-2 rounded-4 shadow"
-                         alt="Ong 3" style="height: 100px; width: 100px;">
 
-                    <div class="card-text p-3">
+                <div class="card-body7 mt-4 mx-1">
+                    <img src="../static/ong3.png" class="card-img-top mx-auto d-block mt-3 mb-2 rounded-4 shadow"
+                         style="height: 100px; width: 100px;">
+
+                    <div class="card-text text-center p-4 mx-3">
                         <p>
-                            Este é um exemplo de texto que descreve o conteúdo do card. Você pode escrever o que quiser aqui.
+                            Este é um exemplo de texto que descreve o conteúdo do card. Você pode escrever o que quiser
+                            aqui.
                         </p>
                     </div>
                 </div>
-                <a href="{{ url_for('cadastrar_voluntario') }}" class="btn button2 mt-2 mb-3" style="width: 13rem;">Voluntarie-se</a>
+                <a href="{{url_for('cadastrar_voluntario')}}" class="btn button2 mt-2" style="width: 13rem">Voluntaria-se</a>
             </div>
-
-        </section>
+        </div>
 
     </main>
 
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
+</div>
 </body>
-</html>

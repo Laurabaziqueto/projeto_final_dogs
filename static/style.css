@@ -1,39 +1,40 @@
- /*Geral*/
-
+/*Geral*/
 * {
     margin: 0;
     padding: 0;
 }
 
 
- .fundo {
+.fundo {
     height: 100vh;
+    width: 100vw;
     overflow: hidden;
 }
 
+
 .topo-alt {
-  background-color: #FEDBEA; /* rosa claro */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  color: white;
-  font-size: 30px;
-  text-shadow:  0 2px 4px darkgrey;
+    background-color: #FEDBEA; /* rosa claro */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    color: white;
+    font-size: 30px;
+    text-shadow: 0 2px 4px darkgrey;
 }
 
 
-h1,h4 {
+h1, h4 {
     font-family: "Purple purse";
-    text-shadow:  0 2px 2px lightgrey;
+    text-shadow: 0 2px 2px lightgrey;
     display: flex;
     justify-content: center;
 }
 
 .purple-purse-regular {
-  font-family: "Purple Purse", serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Purple Purse", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 
@@ -56,6 +57,28 @@ main {
 }
 
 
+label {
+    color: #fff;
+    font-weight: bold;
+    width: 100%;
+}
+
+.form-group input{
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background: #71B384;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.form-group input::placeholder {
+    color: #71B384;
+}
+
+
 .botao_voltar {
     background: #1DA66D;
     color: white;
@@ -70,17 +93,21 @@ main {
 }
 
 .btn.botao_voltar:active {
-  background-color: #178a55;
-  color: white;
-  border-color: #178a55;
+    background-color: #178a55;
+    color: white;
+    border-color: #178a55;
 }
-
 
 
 /*Pagina Inicial*/
 
+
+.inicial-container img {
+    width: 70%;
+}
+
 .card-body2 {
-/* fallback for old browsers */
+    /* fallback for old browsers */
     background: #BEECB1;
     border-radius: 6px;
 }
@@ -100,7 +127,7 @@ main {
 .card-body {
     background: #FAC3DC;
     border-radius: 17px;
-    height: 40vh;
+    height: 100%;
     width: 60%;
 }
 
@@ -118,9 +145,9 @@ main {
 }
 
 .btn.button_sing:active {
-  background-color: #da95b0;
-  border-color: #da95b0;
-  color: white;
+    background-color: #da95b0;
+    border-color: #da95b0;
+    color: white;
 }
 
 
@@ -129,8 +156,11 @@ h5 {
 }
 
 
-
 /*Pagina login*/
+
+.login-container img {
+    width: 80%;
+}
 
 .card-body3 {
     background: #DAEFD5;
@@ -159,11 +189,10 @@ h5 {
 }
 
 .btn.button_sing:active {
-  background-color: #4E9E65;
-  color: white;
-  border-color: #327746;
+    background-color: #4E9E65;
+    color: white;
+    border-color: #327746;
 }
-
 
 
 /*Pagina Adotar*/
@@ -190,18 +219,18 @@ h5 {
 }
 
 .btn.button:active {
-  background-color: #c57d98;
-  color: white;
-  border-color: #c57d98;
+    background-color: #c57d98;
+    color: white;
+    border-color: #c57d98;
 }
 
 
 .select1 {
     width: 70%;
-    height:  40px;
+    height: 40px;
     background-color: #E086AE;
     color: white;
-    border-radius:  20px;
+    border-radius: 20px;
 }
 
 
@@ -213,28 +242,28 @@ h5 {
 
 
 .card-body6 {
-     background-color: #71B384;
-     color: white;
-     border-radius: 17px;
-     height: 50%;
-     width: 70%;
-     margin-left: 15px;
+    background-color: #71B384;
+    color: white;
+    border-radius: 17px;
+    height: 50%;
+    width: 70%;
+    margin-left: 15px;
 }
 
 
 .card-text {
     background-color: #A9E698;
-     border-radius: 17px;
-     height: 60%;
-     width: 88%;
-     margin-left: 15px;
+    border-radius: 17px;
+    height: 60%;
+    width: 88%;
+    margin-left: 15px;
 }
 
 
 .text-title {
-   background-color: #71B384;
-   width: 100px;
-   border-radius: 5px;
+    background-color: #71B384;
+    width: 100px;
+    border-radius: 5px;
 }
 
 .button2 {
@@ -250,8 +279,8 @@ h5 {
 }
 
 .btn.button2:active {
-  background-color: #FAC3DC;
-  color: #E883B0;
+    background-color: #FAC3DC;
+    color: #E883B0;
 }
 
 
@@ -261,13 +290,12 @@ p {
 
 ul {
     list-style-type: none;
-    width:  100%;
+    width: 100%;
     padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-
 
 
 /*Pagina Voluntario*/
@@ -291,10 +319,10 @@ ul {
 
 .card-text {
     background-color: #A9E698;
-     border-radius: 17px;
-     height: 60%;
-     width: 88%;
-     margin-left: 15px;
+    border-radius: 17px;
+    height: 60%;
+    width: 88%;
+    margin-left: 15px;
 }
 
 
@@ -302,9 +330,8 @@ ul {
     width: 15%;
     background-color: #4E9E65;
     color: white;
-    border-radius:  20px;
+    border-radius: 20px;
 }
-
 
 
 /*Pagina Doações*/
@@ -327,34 +354,33 @@ ul {
 
 
 .card-text2 {
-     background-color: #E883B0;
-     color: white;
-     border-radius: 17px;
-     height: 30%;
-     width: 70%;
-     margin-left: 15px;
+    background-color: #E883B0;
+    color: white;
+    border-radius: 17px;
+    height: 30%;
+    width: 70%;
+    margin-left: 15px;
 }
-
 
 
 /*Pagina Pagamentos*/
 
 .tabela {
-      border: 5px solid #98CE89;
+    border: 5px solid #98CE89;
 
-    }
+}
 
 .table th {
-  background: #F9E7EF;
-  color: #d18aa5;
-  overflow: hidden;
+    background: #F9E7EF;
+    color: #d18aa5;
+    overflow: hidden;
 
 }
 
 .table td {
-  background: #F9E7EF;
-  color: #daa8bc;
-  overflow: hidden;
+    background: #F9E7EF;
+    color: #daa8bc;
+    overflow: hidden;
 
 }
 
