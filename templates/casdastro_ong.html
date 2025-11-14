@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de ONG</title>
+    <link rel="stylesheet" href="../static/base.css">
+</head>
+
+<body>
+
+<header class="topo-alt">
+    <div class="logo-texto-alt">
+        <img src="{{ url_for('static', filename='Logo.png') }}" width="100" height="100">
+    </div>
+
+    <h1>Cadastro de ONG</h1>
+
+    <div class="perfil-alt">
+        <button>
+            <img src="/personagem.png" width="50" height="50" alt="">
+        </button>
+    </div>
+</header>
+
+<main class="container1">
+    <div class="card-alt">
+        <h2 class="titulo-card-alt">Preencha os dados abaixo</h2>
+
+        <form action="{{ url_for('cadastro_ong') }}" method="post">
+
+            <input type="text" name="nome_ong" placeholder="Nome da ONG:" required>
+
+            <input type="text" name="chave_pix" placeholder="Chave Pix:" required>
+
+            <textarea name="necessidades"
+                style="background-color: #A8CBA4; color: #555; border-radius: 10px; padding: 8px; border: none; width: 510px;"
+                placeholder="necessidade da ong"
+                required></textarea>
+
+            <label for="url">Adicione o link da Imagem:</label>
+            <input type="url" id="url" name="imagem" placeholder="https://exemplo.com" required>
+
+            <textarea name="descricao"
+                style="background-color: #A8CBA4; color: #555; border-radius: 10px; padding: 8px; border: none; width: 510px;"
+                placeholder="Adicione uma descrição"
+                required></textarea>
+
+
+            <div class="form-group">
+                <button type="submit" class="btn-primary">Concluir</button>
+                <a class="btn-secondary" href="{{ url_for('pagina_inicial') }}">◂ Voltar</a>
+            </div>
+
+        </form>
+    </div>
+</main>
+
+</body>
+</html>

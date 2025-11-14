@@ -26,7 +26,14 @@
         <h2 class="titulo-card-alt">Preencha os dados abaixo</h2>
 
         <!-- Formulário principal -->
-        <form action="/cadastro_animal" method="POST">
+        <form action="{{ url_for ('cadastro_animal') }}" method="POST">
+             <select name="categoria" required
+                style="background-color: #A8CBA4; color: #555; border-radius: 10px; padding: 8px; border: none; width: 525px;">
+                <option disabled selected>categoria</option>
+                <option value="cachorro">cachorro</option>
+                <option value="gato">gato</option>
+                <option value="coelho">coelho</option>
+            </select>
             <input type="text" name="nome" placeholder="Nome" required>
             <input type="number" name="idade" placeholder="Idade" min="0" required>
             <input type="text" name="raca" placeholder="Raça" required>
@@ -39,12 +46,12 @@
             </select>
 
             <label for="url">Adicione o link da Imagem:</label>
-            <input type="url" id="url" name="url" placeholder="https://exemplo.com" required>
+            <input type="url" id="url" name="imagem" placeholder="https://exemplo.com" required>
 
             <button type="submit" class="bnt-alt">Concluir</button>
         </form>
 
-        <a href="{{ url_for('pagina_adotar') }}" class="btn button2 mt-2" style="width: 13rem;">Voltar</a>
+        <a href="{{ url_for('listar_animais') }}" class="btn button2 mt-2" style="width: 13rem;">Voltar</a>
     </div>
 </main>
 

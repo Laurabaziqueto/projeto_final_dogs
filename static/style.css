@@ -384,3 +384,24 @@ ul {
 
 }
 
+/*Paginas com Tabelas*/
+
+.tabela {
+    border: 5px solid #98CE89;
+
+}
+
+.table th {
+    background: #F9E7EF;
+    color: #d18aa5;
+    overflow: hidden;
+
+}
+
+.table td {
+    background: #F9E7EF;
+    color: #daa8bc;
+    overflow: hidden;
+
+}
+
