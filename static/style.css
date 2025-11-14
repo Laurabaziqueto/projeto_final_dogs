@@ -99,6 +99,29 @@ label {
 }
 
 
+.flash-message.success {
+  background-color: #328a4c;
+  color: white;
+  width: 200px;
+  padding: 9px;
+  border: 2px solid #1e7034;
+  border-radius: 20px;
+  box-shadow:  2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+.flash-message.error {
+  background-color: #e488a9;
+  color: white;
+  width: 200px;
+  padding: 9px;
+  border: 2px solid #d56c91;
+  border-radius: 20px;
+  box-shadow:  2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
 /*Pagina Inicial*/
 
 
