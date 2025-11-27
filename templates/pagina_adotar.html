@@ -50,7 +50,7 @@
 
         <ul>
             <li>
-                <a href="{{ url_for('doacoes_realizada') }}" class="btn button">Adoções</a>
+                <a href="{{ url_for('listar_adocoes') }}" class="btn button">Adoções</a>
             </li>
             <li>
                 <a href="{{ url_for('informacao') }}" class="btn button">Informações</a>
@@ -79,7 +79,7 @@
                     <div class="card-body6 text-center mx-3 my-2 d-flex flex-column justify-content-center align-items-center">
                         <p>{{ animal.raca }}</p>
                         <p>{{ animal.idade }} anos</p>
-                        <a href="" class="btn button2 mt-2 ">Adotar</a>
+                        <a  href="{{ url_for('cadastro_adocao', id_animal = animal.id_animal) }}" class="btn button2 mt-2 ">Adotar</a>
                     </div>
                 </div>
             {% endfor %}

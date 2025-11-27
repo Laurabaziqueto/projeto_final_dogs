@@ -2,13 +2,13 @@ from flask import Flask, request, jsonify, flash, url_for, render_template, redi
 from select import select
 
 from routes import post_usuario, post_login, post_ongs, post_animal, get_animais, get_usuarios, post_voluntario, \
-    get_ongs, get_voluntario
+    get_ongs, get_adocoes, post_adocoes
 
 app = Flask(__name__)
 app.secret_key = "sua_chave_secreta"
 @app.route('/')
 def index():
-    flash("entrada, aplicacao", category="success")
+
     return render_template('Pagina_inicial.html')
 
 
@@ -20,14 +20,6 @@ def pagina_inicial():
 @app.route('/pagina_doacoes', methods=['GET'])
 def pagina_doacoes():
     return render_template('pagina_doacao.html')
-
-@app.route('/doacoes_realizada ',methods=['GET'])
-def doacoes_realizada():
-    return render_template('adoacoes_realizada.html')
-
-@app.route('/voluntario', methods=['GET'])
-def voluntario():
-    return render_template('pagina_voluntario.html')
 
 @app.route('/resgate', methods=['GET'])
 def resgate():
@@ -57,7 +49,7 @@ def login():
         # verificar se deu sucesso
         if resultado.status_code == 200:
             # salvar na session id e nome do usuario
-            session['id_usuario'] = resultado.json()['usuario']
+            session['usuario'] = resultado.json()['usuario']
             flash('Login bem-sucedido!', 'success')
             return redirect(url_for('pagina_inicial'))
         else:
@@ -135,13 +127,11 @@ def cadastro_animal():
 
 # listar voluntario
 @app.route('/voluntario')
-def listar_voluntario():
+def voluntario():
 
-    voluntario = get_voluntario()
-
-    print(voluntario)
-    return render_template("tabela_usuario.html", voluntario=voluntario ['voluntario'])
-
+    ongs = get_ongs()
+    print(ongs)
+    return render_template("pagina_voluntario.html", ongs=ongs ['ongs'])
 
 # cadastro voluntario
 @app.route('/cadastro_voluntario', methods=['GET', 'POST'])
@@ -171,7 +161,7 @@ def listar_ongs():
     ongs = get_ongs()
 
     print(ongs)
-    return render_template("pagina_voluntario.html", ongs=ongs ['ongs'])
+    return render_template("pagina_voluntario.html", ongs=ongs['ongs'])
 
 # cadastrar ongs
 @app.route('/cadastro_ong', methods=['GET', 'POST'])
@@ -195,36 +185,37 @@ def cadastro_ong():
     return render_template('casdastro_ong.html')
 
 #
-# # listar adocao
-# @app.route('/adocoes')
-# def listar_adocao():
-#
-#     adocoes = get_adocao()
-#
-#     print(adocao)
-#     return render_template("pagina_voluntario.html", ongs=ongs ['ongs'])
-#
-# # cadastrar adocao
-# @app.route('/cadastro_ong', methods=['GET', 'POST'])
-# def cadastro_ong():
-#     if request.method == 'POST':
-#         nome_ong = request.form.get('nome_ong')
-#         chave_pix = request.form.get('chave_pix')
-#         necessidades = request.form.get('necessidades')
-#         imagem = request.form.get('imagem')
-#         descricao = request.form.get('descricao')
-#
-#
-#         resultado = post_ongs(nome_ong, chave_pix, necessidades, imagem, descricao)
-#
-#         if resultado == 201:
-#             flash('Cadastro bem-sucedido!', 'success')
-#             return redirect(url_for('voluntario'))
-#         else:
-#             flash(f'erro: {resultado}', 'danger')
-#             return redirect(url_for('cadastro_ong'))
-#     return render_template('casdastro_ong.html')
-#
+# listar adocao
+@app.route('/adocoes')
+def listar_adocoes():
+    id_usuario = session['usuario']['id_usuario']
+    print(id_usuario)
+    adocoes = get_adocoes(id_usuario)
+
+    if "adocoes" in adocoes:
+        adocoes = adocoes['adocoes']
+    else:
+        adocoes = []
+
+    print(adocoes)
+    return render_template("adoacoes_realizada.html", adocoes=adocoes)
+
+
+# cadastrar adocao
+@app.route('/cadastro_adocoes/<id_animal>', methods=['GET', 'POST'])
+def cadastro_adocao(id_animal):
+
+    usuario_id = session['usuario']['id_usuario']
+
+    print(id_animal)
+    cadastro_adocoes = post_adocoes(usuario_id, id_animal)
+    # if "adocao" in cadastro_adocoes:
+    #     cadastro_adocoes = cadastro_adocoes['cadastro_adocoes']
+    # else:
+    #     cadastro_adocoes = []
+    #     print(cadastro_adocoes)
+
+    return redirect(url_for('listar_adocoes'))
 
 
 if __name__ == "__main__":

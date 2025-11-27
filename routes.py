@@ -2,7 +2,7 @@ import pickle
 
 import requests
 
-base_url = "http://10.135.232.8:5000"
+base_url = "http://10.135.232.29:5000"
 
 def post_login(cpf, senha):
     try:
@@ -68,6 +68,32 @@ def put_usuario(nome, cpf, email, senha, telefone,id_usuario):
         print(e)
         return {
             "error": f"{e}",
+        }
+
+def get_adocoes(id_usuario):
+    try:
+        url = f"{base_url}/listar_adocoes/{id_usuario}"
+        response = requests.get(url)
+        return response.json()
+    except Exception as e:
+        print(e)
+        return {
+            "error": f"{e}",
+        }
+
+def post_adocoes(usuario_id, animal_id):
+    try:
+        url = f"{base_url}/cadastro_adocao"
+        dados = {
+            "usuario_id": usuario_id,
+            "animal_id": animal_id
+        }
+        response = requests.post(url, json=dados)
+        return response.status_code
+    except Exception as e:
+        print(e)
+        return {
+            "error": f"{e}"
         }
 
 
@@ -137,14 +163,13 @@ def post_voluntario(nome, cpf, telefone, email, data_nascimneto ):
 # ongs
 def get_ongs():
     try:
-        url = f"{base_url}/listar_ongs"
+        url = f"{base_url}/listar/ongs"
         response = requests.get(url)
         return response.json()
     except Exception as e:
         print(e)
         return {
-            "error": f"{e}",
-
+            "error": f"{e}"
         }
 
 def post_ongs(nome_ong, chave_pix, necessidades, imagem, descricao ):

@@ -23,7 +23,7 @@
 </header>
 
 <main class="container10">
-    <a class="btn-secondary" href="{{ url_for('pagina_inicial') }}">
+    <a class="btn-secondary" href="{{ url_for('listar_animais') }}">
         <i class="bi bi-arrow-left-short"></i> Voltar
     </a>
 
@@ -31,16 +31,11 @@
         {% for adocao in adocoes %}
             <div class="card10">
                 <div class="card-left10">
-                    <p><strong>{{ adocao.animal_nome }}:</strong></p>
+                    <p><strong>{{ adocao.animal }}:</strong></p>
                 </div>
                 <div class="card-right10">
                     <p>
-                        <strong>Adotante:</strong> {{ adocao.adotante_nome }}<br>
-                        <strong>CPF:</strong> {{ adocao.cpf }}
-                    </p>
-                    <p>
-                        <strong>Telefone:</strong> {{ adocao.telefone }}<br>
-                        <strong>Adoção:</strong> {{ adocao.status }}
+                        <strong>Adotante:</strong> {{ adocao.nome_adotante }}<br>
                     </p>
                 </div>
             </div>

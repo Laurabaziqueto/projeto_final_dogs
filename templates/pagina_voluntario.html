@@ -33,46 +33,28 @@
 
         <div class="div-botao mt-3 justify-content-start">
 
-            <a href="https://www." class="botao_voltar btn ms-4">
+            <a href="{{url_for('pagina_inicial')}}" class="botao_voltar btn ms-4">
                 <i class="bi bi-arrow-left-short"></i>Voltar</a>
         </div>
 
         <div class="div-cards2 d-flex justify-content-center align-items-center">
+            {% for ong in ongs %}
             <div class="card7 d-flex flex-column justify-content-center align-items-center me-4" style="width: 20rem;">
-
                 <div class="card-body7 mt-4 mx-1">
-                    <img src="../static/ong1.png" class="card-img-top mx-auto d-block mt-3 mb-2 rounded-4 shadow"
+                    <h5 class="text-title text-center">{{ ong.nome}} </h5>
+                    <img src="{{ ong.imagem }}" class="card-img-top mx-auto d-block mt-3 mb-2 rounded-4 shadow"
                          style="height: 100px; width: 100px;">
 
-                    <div class="card-text text-center p-4 mx-3">
-                        <p>
-                            Este é um exemplo de texto que descreve o conteúdo do card. Você pode escrever o que quiser
-                            aqui.
-                        </p>
+                    <div class="card-text text-center p-4 mx-3 my-2 d-flex flex-column justify-content-center align-items-center">
+                        <p>{{ ong.descricao }}</p>
+                        <p>{{ ong.chave_pix }} </p>
+                        <a href="{{url_for('cadastro_voluntario')}}" class="btn button2 mt-2" style="width: 13rem">Voluntaria-se</a>
                     </div>
                 </div>
-                <a href="{{url_for('cadastro_voluntario')}}" class="btn button2 mt-2" style="width: 13rem">Voluntaria-se</a>
             </div>
-
-            <div class="card7 d-flex flex-column justify-content-center align-items-center" style="width: 20rem;">
-
-                <div class="card-body7 mt-4 mx-1">
-                    <img src="../static/ong3.png" class="card-img-top mx-auto d-block mt-3 mb-2 rounded-4 shadow"
-                         style="height: 100px; width: 100px;">
-
-                    <div class="card-text text-center p-4 mx-3">
-                        <p>
-                            Este é um exemplo de texto que descreve o conteúdo do card. Você pode escrever o que quiser
-                            aqui.
-                        </p>
-                    </div>
-                </div>
-                <a href="{{url_for('cadastro_voluntario')}}" class="btn button2 mt-2" style="width: 13rem">Voluntaria-se</a>
-            </div>
+            {% endfor %}
         </div>
-
     </main>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
