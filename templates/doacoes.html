@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+    <div class="d-flex">
+        {% if doacoes %}
+        {% for doacao in doacoes %}
+        <div class="card10">
+            <div class="card-left10">
+                <h5 class="text-center">{{ doacao.ong }}</h5>
+
+                <img src="{{ doacao.ong_imagem }}" class="card-img-top mx-auto d-block mt-1 rounded-4 shadow"
+                     style="height: 100px; width: 100px;">
+
+                <p><strong>Valor: </strong>   R${{ doacao.valor }}</p>
+                <p>{{ doacao.data_registro }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p style="text-align: center; margin-top: 2rem;">
+            Nenhuma doação registrada, doe agora.
+        </p>
+    {% endif %}
+    </div>
+
+{% endblock main %}

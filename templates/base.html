@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Pagina de Animais</title>
-    <link rel="stylesheet" href="/static/style.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
           crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/base.css">
+    <!--    <link rel="stylesheet" href="/static/style.css">-->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <!--Fonte-->
@@ -26,27 +29,28 @@
         </div>
     </header>
 
-    <nav class="navbar justify-content-center">
-        <ul>
-            <li><a href="{{ url_for('listar_animais') }}" class="btn button">Adoções Disponiveis</a></li>
-            <li><a href="{{ url_for('voluntario') }}" class="btn button">Se torne um Voluntário</a></li>
-            <li><a href="{{ url_for('pagina_doacoes') }}" class="btn button">Doações</a></li>
-            <li><a href="{{ url_for('resgate') }}" class="btn button">Resgate e Denuncia</a></li>
-            <li><a href="{{ url_for('cadastro_ong') }}" class="btn button">Adicione sua Ong</a></li>
-            <li><a href="{{ url_for('cadastro_animal') }}" class="btn button">Adiocione um Animal</a></li>
-        </ul>
+    <div class="d-flex flex-row w-100">
+        <nav class="navbar justify-content-center">
+            <ul>
+                <li><a href="{{ url_for('listar_animais') }}" class="btn button">Animais</a></li>
+                <li><a href="{{ url_for('listar_ongs') }}" class="btn button">Ongs</a></li>
+                <li><a href="{{ url_for('resgate') }}" class="btn button">Resgate e Denuncia</a></li>
+                <li><a href="{{ url_for('cadastro_ong') }}" class="btn button">Adicione sua Ong</a></li>
+                <li><a href="{{ url_for('cadastro_animal') }}" class="btn button">Adiocione um Animal</a></li>
+            </ul>
+            <ul>
+                <li><a href="{{ url_for('listar_adocoes') }}" class="btn button">Minhas Adoções</a></li>
+                <li><a href="{{ url_for('listar_doacoes') }}" class="btn button">Minhas Doações</a></li>
+                <li><a href="{{ url_for('informacao') }}" class="btn button">Informações</a></li>
+            </ul>
+        </nav>
 
-        <ul>
-            <li><a href="{{ url_for('listar_adocoes') }}" class="btn button">Adoções</a></li>
-            <li><a href="{{ url_for('informacao') }}" class="btn button">Informações</a></li>
-        </ul>
-    </nav>
+        <main>
+            {% block main %}
 
-    <main>
-        {% block main %}
-
-        {% endblock main %}
-    </main>
+            {% endblock main %}
+        </main>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

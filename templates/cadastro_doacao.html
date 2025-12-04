@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="card20">
+
+    <!-- Coluna esquerda - formulário -->
+    <div class="card-left20">
+        <img class="img-20" src="{{ ong.imagem }}"
+             alt="QR Code Pix">
+        <h2>Preencha seus dados</h2>
+        <form class="div_formulario" action="{{ url_for('cadastro_doacao', ong_id=ong.id_ong) }}" method="post">
+
+            <h3>Doador: {{ usuario.nome }}</h3>
+
+            <label>Valor:
+                <input type="number" name="form_valor" required>
+            </label>
+
+            <button type="submit" class="button-doar">Doar</button>
+        </form>
+
+    </div>
+
+    <!-- Coluna direita - QR Code -->
+    <div class="card-right20">
+        <img class="img-20" src="https://generator.qrcodefacil.com/qrcodes/static-399180e373dec668a09bada5eef977e1.svg"
+             alt="QR Code Pix">
+        <h3>Chave PIX: {{ ong.chave_pix }}</h3>
+    </div>
+
+</div>
+
+{% endblock main %}

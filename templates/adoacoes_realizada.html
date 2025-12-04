@@ -1,25 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Adoções</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
-</head>
-<body>
+{% extends 'base.html' %}
 
-
-<header class="header10">
-    <div class="logo10">
-        <img src="/static/Logo.png" alt="Logo" width="100" height="100">
-    </div>
-
-    <h1>ADOÇÕES</h1>
-</header>
-
-<main class="container10">
-    <a class="btn-secondary" href="{{ url_for('listar_animais') }}">
-        <i class="bi bi-arrow-left-short"></i> Voltar
-    </a>
+{% block main %}
 
     {% if adocoes %}
         {% for adocao in adocoes %}
@@ -41,7 +22,4 @@
             Nenhuma adoção registrada.
         </p>
     {% endif %}
-</main>
-
-</body>
-</html>
+{% endblock main %}

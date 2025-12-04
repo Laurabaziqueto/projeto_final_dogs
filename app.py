@@ -2,14 +2,14 @@ from flask import Flask, request, jsonify, flash, url_for, render_template, redi
 from select import select
 
 from routes import post_usuario, post_login, post_ongs, post_animal, get_animais, get_usuarios, post_voluntario, \
-    get_ongs, get_adocoes, post_adocoes, get_voluntario
+    get_ongs, get_adocoes, post_adocoes, get_voluntario, post_doacao, get_ong, get_doacoes, get_usuario
 
 app = Flask(__name__)
 app.secret_key = "sua_chave_secreta"
+
 @app.route('/')
 def index():
     return render_template('Pagina_inicial.html')
-
 
 #  ---------------------- PAGÍNA INICIAL ----------------------
 @app.route('/pagina_inicial', methods=['GET'])
@@ -17,18 +17,11 @@ def pagina_inicial():
      ongs = get_ongs()
      return render_template('Paginainicial.html', ongs=ongs)
 
-@app.route('/pagina_doacoes', methods=['GET'])
-def pagina_doacoes():
-    return render_template('pagina_doacao.html')
 
 @app.route('/resgate', methods=['GET'])
 def resgate():
     return render_template('resgate_denuncia.html')
 
-
-@app.route('/pagamento', methods=['GET'])
-def pagamento():
-    return render_template('pagamento_pix.html')
 
 # ---------------------- LOGIN ----------------------
 @app.route('/login', methods=['GET', 'POST'])
@@ -47,7 +40,7 @@ def login():
             # salvar na session id e nome do usuario
             session['usuario'] = resultado.json()['usuario']
             flash('Login bem-sucedido!', 'success')
-            return redirect(url_for('pagina_inicial'))
+            return redirect(url_for('listar_animais'))
         else:
             flash('Usuario senha inválidos.', 'danger')
             return redirect(url_for('login'))
@@ -121,13 +114,6 @@ def cadastro_animal():
             return redirect(url_for('cadastro_animal'))
     return render_template('cadastro_animal.html')
 
-# listar voluntario
-@app.route('/voluntario')
-def voluntario():
-
-    ongs = get_ongs()
-    print(ongs)
-    return render_template("pagina_voluntario.html", ongs=ongs ['ongs'])
 ''
 # cadastro voluntario
 @app.route('/cadastro_voluntario/<ong_id>', methods=['GET', 'POST'])
@@ -154,7 +140,7 @@ def listar_voluntario():
     return render_template("lista_voluntariados.html", voluntarios=voluntarios)
 
 
-# listar ongs
+# ongs
 @app.route('/ongs')
 def listar_ongs():
 
@@ -178,7 +164,7 @@ def cadastro_ong():
 
         if resultado == 201:
             flash('Cadastro bem-sucedido!', 'success')
-            return redirect(url_for('voluntario'))
+            return redirect(url_for('listar_ongs'))
         else:
             flash(f'erro: {resultado}', 'danger')
             return redirect(url_for('cadastro_ong'))
@@ -217,6 +203,41 @@ def cadastro_adocao(id_animal):
 
     return redirect(url_for('listar_adocoes'))
 
+@app.route('/cadastro_doacao/<ong_id>', methods=['GET', 'POST'])
+def cadastro_doacao(ong_id):
+    usuario_id = session['usuario']['id_usuario']
+
+    if request.method == 'POST':
+        valor = request.form.get('form_valor')
+        cadastro_adocoes = post_doacao(usuario_id, ong_id, int(valor))
+
+        print(cadastro_adocoes)
+        if cadastro_adocoes:
+            flash('Cadastro de doacao', 'success')
+            return redirect(url_for('listar_doacoes'))
+        else:
+            flash(f'erro: {cadastro_adocoes}', 'danger')
+            return redirect(url_for('cadastro_doacao'))
+
+    ong = get_ong(ong_id)
+    usuario = get_usuario(usuario_id)
+    print('ong', ong)
+    print('usuario', usuario)
+    return render_template("cadastro_doacao.html", ong=ong['ong'], usuario=usuario['usuario'])
+
+@app.route('/doacoes')
+def listar_doacoes():
+    id_usuario = session['usuario']['id_usuario']
+    print(id_usuario)
+    doacoes = get_doacoes(id_usuario)
+
+    if "doacoes" in doacoes:
+        doacoes = doacoes['doacoes']
+    else:
+        doacoes = []
+
+    print(doacoes)
+    return render_template("doacoes.html", doacoes=doacoes)
 
 if __name__ == "__main__":
     app.run(debug=True,host="0.0.0.0",port=5001)
