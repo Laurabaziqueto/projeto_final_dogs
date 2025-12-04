@@ -21,10 +21,10 @@
 <div class="container5 d-flex flex-column">
 
     <header class="topo-alt">
-        <div class="logo-texto-alt"><img src="../static/Logo.png" width="100" height="80"></div>
+        <div class="logo-texto-alt"><img src="/static/Logo.png" width="100" height="80"></div>
         <h1>Seja um Voluntario</h1>
         <div class="perfil-alt">
-            <botton><img src="/personagem.png" width="50" height="50" alt=""></botton>
+            <img src="/static/personagem.png" width="50" height="50" alt="">
         </div>
     </header>
 
@@ -32,27 +32,34 @@
     <main class="">
 
         <div class="div-botao mt-3 justify-content-start">
-
             <a href="{{url_for('pagina_inicial')}}" class="botao_voltar btn ms-4">
-                <i class="bi bi-arrow-left-short"></i>Voltar</a>
+                <i class="bi bi-arrow-left-short"></i>Voltar
+            </a>
         </div>
 
-        <div class="div-cards2 d-flex justify-content-center align-items-center">
-            {% for ong in ongs %}
-            <div class="card7 d-flex flex-column justify-content-center align-items-center me-4" style="width: 20rem;">
-                <div class="card-body7 mt-4 mx-1">
-                    <h5 class="text-title text-center">{{ ong.nome}} </h5>
-                    <img src="{{ ong.imagem }}" class="card-img-top mx-auto d-block mt-3 mb-2 rounded-4 shadow"
-                         style="height: 100px; width: 100px;">
+        <div class="div-cards2 d-flex justify-content-start p-2">
+            {% if ongs %}
+                {% for ong in ongs %}
+                <div class="card7 d-flex flex-column justify-content-center p-3">
+                    <div class="card-body7 mx-1 p-3 text-center">
+                        <p>{{ ong.nome_ong}}</p>
 
-                    <div class="card-text text-center p-4 mx-3 my-2 d-flex flex-column justify-content-center align-items-center">
-                        <p>{{ ong.descricao }}</p>
-                        <p>{{ ong.chave_pix }} </p>
-                        <a href="{{url_for('cadastro_voluntario')}}" class="btn button2 mt-2" style="width: 13rem">Voluntaria-se</a>
+                        <img src="{{ong.imagem }}" class="card-img-top mx-auto mb-2 d-block rounded-4 shadow"
+                             style="height: 150px; width: 150px;">
+
+                        <div class="card-text div-precisa text-center p-2 d-flex flex-column justify-content-center align-items-center">
+                            <p><strong>Precisa-se:</strong> {{ ong.necessidades }}, vacina, remedio, coleiras</p>
+                        </div>
+
+                        <a href="{{ url_for('cadastro_voluntario', ong_id=ong.id_ong) }}"
+                               class="btn button2 mt-2" style="width: 100%"><strong>Voluntaria-se</strong></a>
                     </div>
                 </div>
-            </div>
-            {% endfor %}
+                {% endfor %}
+            {% else %}
+                <p>Não há ongs disponíveis</p>
+            {% endif %}
+
         </div>
     </main>
 

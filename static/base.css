@@ -380,15 +380,14 @@ body {
 
 .card-left10 {
     flex: 1;
+    display: flex;
+    flex-direction: column;
     font-weight: bold;
-    justify-items: left;
     background: #71B384;
     margin: 10px;
-    height: 60px;
+    padding: 10px;
     align-items: center;
     border-radius: 30px;
-
-
 }
 
 .card-right10 {
@@ -403,14 +402,10 @@ body {
 }
 
 p {
-
     flex-direction: row;
     display: flex;
+    align-items: flex-end;
     padding-bottom: 10px;
-    margin-left: 70px;
-    display: inline-block;
-
-
 }
 
 /*informações de adoção*/
@@ -751,4 +746,57 @@ h1 {
     font-family: "Purple Purse", serif;
     font-weight: 400;
     font-style: normal;
+}
+
+
+/* Card geral */
+.card10 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #4d9966;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 30px auto;
+    width: 80%;
+    color: white;
+    font-size: 18px;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+
+}
+
+/* Imagem */
+.card-img10 img {
+    width: 130px;
+    height: 90px;
+    border-radius: 10px;
+}
+
+/* Caixa do nome */
+.card-name10 {
+    background-color: #79c98a;
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* Caixa das informações */
+.card-info10 {
+    background-color: #5da67b;
+    padding: 25px;
+    border-radius: 10px;
+    flex: 1;
+
+}
+
+.container10{
+
+    height: 100%;
+
+
 }

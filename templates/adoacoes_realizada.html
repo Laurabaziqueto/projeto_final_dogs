@@ -10,16 +10,10 @@
 
 <header class="header10">
     <div class="logo10">
-        <img src="/Logo.png" alt="Logo" width="100" height="100">
+        <img src="/static/Logo.png" alt="Logo" width="100" height="100">
     </div>
 
     <h1>ADOÇÕES</h1>
-
-    <div class="perfil10">
-        <button class="perfil-btn10" type="button">
-            <img src="{{ url_for('static', filename='personagem.png') }}" alt="Perfil" width="50" height="50">
-        </button>
-    </div>
 </header>
 
 <main class="container10">
@@ -29,16 +23,18 @@
 
     {% if adocoes %}
         {% for adocao in adocoes %}
-            <div class="card10">
-                <div class="card-left10">
-                    <p><strong>{{ adocao.animal }}:</strong></p>
-                </div>
-                <div class="card-right10">
-                    <p>
-                        <strong>Adotante:</strong> {{ adocao.nome_adotante }}<br>
-                    </p>
-                </div>
+        <div class="card10">
+            <div class="card-left10">
+                <img src="{{ adocao.imagem }}" class="card-img-top mx-auto d-block mt-1 rounded-4 shadow"
+                     style="height: 100px; width: 100px;">
+                <p><strong>animal:</strong> {{ adocao.animal }}</p>
             </div>
+
+            <div class="card-right10">
+                <p><strong>Adotante:</strong> {{ adocao.nome_adotante }}</p>
+                <p><strong>Data:</strong> {{ adocao.data_adocao }}</p>
+            </div>
+        </div>
         {% endfor %}
     {% else %}
         <p style="text-align: center; margin-top: 2rem;">

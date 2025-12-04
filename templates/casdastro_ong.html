@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de ONG</title>
-    <link rel="stylesheet" href="../static/base.css">
+    <link rel="stylesheet" href="/static/base.css">
 </head>
 
 <body>
 
 <header class="topo-alt">
     <div class="logo-texto-alt">
-        <img src="{{ url_for('static', filename='Logo.png') }}" width="100" height="100">
+        <img src="/static/Logo.png" width="100" height="80">
     </div>
 
     <h1>Cadastro de ONG</h1>
 
     <div class="perfil-alt">
-        <button>
-            <img src="/personagem.png" width="50" height="50" alt="">
-        </button>
+
+            <img src="/static/personagem.png" width="50" height="50" alt="">
+
     </div>
 </header>
 
@@ -47,7 +47,7 @@
 
 
             <div class="form-group">
-                <button type="submit" class="btn-primary">Concluir</button>
+                <button type="submit" class="btn-primary" href="{{ url_for('pagina_inicial') }}" >Concluir</button>
                 <a class="btn-secondary" href="{{ url_for('pagina_inicial') }}">◂ Voltar</a>
             </div>
 

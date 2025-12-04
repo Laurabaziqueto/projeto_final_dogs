@@ -51,6 +51,7 @@ def post_usuario(nome, cpf, telefone, email, senha ):
             "error": f"{e}"
         }
 
+
 # editar
 def put_usuario(nome, cpf, email, senha, telefone,id_usuario):
     try:
@@ -73,6 +74,33 @@ def put_usuario(nome, cpf, email, senha, telefone,id_usuario):
 def get_adocoes(id_usuario):
     try:
         url = f"{base_url}/listar_adocoes/{id_usuario}"
+        response = requests.get(url)
+        return response.json()
+    except Exception as e:
+        print(e)
+        return {
+            "error": f"{e}",
+        }
+
+def post_voluntario(usuario_id, ong_id):
+    try:
+        url = f"{base_url}/cadastro_voluntario"
+        dados = {
+            "usuario_id": usuario_id,
+            "ong_id": ong_id
+        }
+        response = requests.post(url, json=dados)
+        return response.status_code
+    except Exception as e:
+        print(e)
+        return {
+            "error": f"{e}"
+        }
+
+
+def get_voluntario(id_usuario):
+    try:
+        url = f"{base_url}/listar_voluntario/{id_usuario}"
         response = requests.get(url)
         return response.json()
     except Exception as e:
@@ -126,37 +154,6 @@ def post_animal(categoria, nome, raca, idade, sexo, imagem):
         print(e)
         return {
             "error": f"{e}",
-        }
-
-
-def get_voluntario():
-    try:
-        url = f"{base_url}/listar_voluntarios"
-        response = requests.get(url)
-        return response.json()
-    except Exception as e:
-        print(e)
-        return {
-            "error": f"{e}",
-
-        }
-
-def post_voluntario(nome, cpf, telefone, email, data_nascimneto ):
-    try:
-        url = f"{base_url}/cadastro_voluntario"
-        dados = {
-            "nome": nome,
-            "cpf": cpf,
-            "telefone": telefone,
-            "email": email,
-            "data_nascimneto": data_nascimneto,
-        }
-        response = requests.post(url, json=dados)
-        return response.status_code
-    except Exception as e:
-        print(e)
-        return {
-            "error": f"{e}"
         }
 
 

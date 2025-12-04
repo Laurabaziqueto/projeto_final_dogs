@@ -2,20 +2,20 @@ from flask import Flask, request, jsonify, flash, url_for, render_template, redi
 from select import select
 
 from routes import post_usuario, post_login, post_ongs, post_animal, get_animais, get_usuarios, post_voluntario, \
-    get_ongs, get_adocoes, post_adocoes
+    get_ongs, get_adocoes, post_adocoes, get_voluntario
 
 app = Flask(__name__)
 app.secret_key = "sua_chave_secreta"
 @app.route('/')
 def index():
-
     return render_template('Pagina_inicial.html')
 
 
 #  ---------------------- PAGÍNA INICIAL ----------------------
 @app.route('/pagina_inicial', methods=['GET'])
 def pagina_inicial():
-    return render_template('Paginainicial.html')
+     ongs = get_ongs()
+     return render_template('Paginainicial.html', ongs=ongs)
 
 @app.route('/pagina_doacoes', methods=['GET'])
 def pagina_doacoes():
@@ -25,10 +25,6 @@ def pagina_doacoes():
 def resgate():
     return render_template('resgate_denuncia.html')
 
-# Rota para adicionar a ONG
-@app.route('/ongs', methods=['GET'])
-def ongs():
-    return render_template('casdastro_ong.html')
 
 @app.route('/pagamento', methods=['GET'])
 def pagamento():
@@ -66,7 +62,7 @@ def listar_usuarios():
     usuarios = get_usuarios()
 
     print(usuarios)
-    return render_template("tabela_usuario.html", usuarios=usuarios ['usuarios'])
+    return render_template("tabela_usuario.html", usuarios=usuarios['usuarios'])
 
 # ---------------------- CADASTRAR USUARIO ----------------------
 @app.route('/usuario/cadastrar', methods=['GET', 'POST'])
@@ -102,7 +98,7 @@ def listar_animais():
     animais = get_animais()
 
     print(animais)
-    return render_template("pagina_adotar.html", animais=animais ['animais'])
+    return render_template("Paginainicial.html", animais=animais ['animais'])
 
 # cadastrar animal
 @app.route('/animal/cadastrar', methods=['GET', 'POST'])
@@ -132,27 +128,31 @@ def voluntario():
     ongs = get_ongs()
     print(ongs)
     return render_template("pagina_voluntario.html", ongs=ongs ['ongs'])
-
+''
 # cadastro voluntario
-@app.route('/cadastro_voluntario', methods=['GET', 'POST'])
-def cadastro_voluntario():
-    if request.method == 'POST':
-        nome = request.form.get('nome')
-        cpf = request.form.get('cpf')
-        telefone = request.form.get('telefone')
-        email = request.form.get('email')
-        data_nascimento = request.form.get('data_nascimneto')
+@app.route('/cadastro_voluntario/<ong_id>', methods=['GET', 'POST'])
+def cadastro_voluntario(ong_id):
+    usuario_id = session['usuario']['id_usuario']
 
+    print(ong_id)
+    cadastro_adocoes = post_adocoes(usuario_id, ong_id)
 
-        resultado = post_voluntario(nome, cpf, telefone, email, data_nascimento)
+    return redirect(url_for('listar_voluntario'))
 
-        if resultado == 201:
-            flash('Cadastro bem-sucedido!', 'success')
-            return redirect(url_for('voluntario'))
-        else:
-            flash(f'erro: {resultado}', 'danger')
-            return redirect(url_for('cadastro_voluntario'))
-    return render_template('cadastro_voluntario.html')
+@app.route('/listar_voluntario')
+def listar_voluntario():
+    id_usuario = session['usuario']['id_usuario']
+    print(id_usuario)
+    voluntarios = get_voluntario(id_usuario)
+
+    if "voluntarios" in voluntarios:
+        voluntarios = voluntarios['voluntarios']
+    else:
+        voluntarios = []
+
+    print(voluntarios)
+    return render_template("lista_voluntariados.html", voluntarios=voluntarios)
+
 
 # listar ongs
 @app.route('/ongs')

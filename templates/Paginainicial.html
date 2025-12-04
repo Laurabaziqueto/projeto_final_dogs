@@ -1,41 +1,26 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Página Inicial</title>
-    <link rel="stylesheet" href="../static/base.css">
+{% extends 'base.html' %}
 
-    <!--Fonte-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Purple+Purse&display=swap" rel="stylesheet">
-</head>
-<body>
+{% block main %}
+    <div class="div-cards d-flex flex-wrap">
+        {% if animais %}
+            {% for animal in animais %}
+                <div class="card6 d-flex flex-column justify-content-center align-items-center shadow mt-4 mx-4"
+                 style="width: 17rem;">
 
-<div class="container1">
-    <img src="/static/fundoini.png" alt="Imagem Inicial" class="imagem-card">
+                <h5 class="text-title text-center">{{ animal.nome }}</h5>
+                <img src="{{ animal.imagem }}" class="card-img-top mx-auto d-block mt-1 rounded-4 shadow"
+                     style="height: 100px; width: 100px;">
 
-    <div class="card5 p-4 shadow rounded text-center">
-        <h1 class="mb-3">Página Inicial</h1>
-
-        <div class="textoini mb-4">
-            <h3>Brilho no Olhar Pet</h3>
-        </div>
-
-        <div class="botoesinicial d-flex flex-column gap-3 mx-auto" style="max-width: 300px;">
-            <a href="{{ url_for('pagina_doacoes') }}" class="btn btn-ini btn-lg">Faça sua doação</a>
-            <a href="{{ url_for('listar_adocoes') }}" class="btn btn-ini btn-lg">Adoções Realizadas</a>
-            <a href="{{ url_for('voluntario') }}" class="btn btn-ini btn-lg">Voluntário</a>
-            <a href="{{ url_for('resgate') }}" class="btn btn-ini btn-lg">Resgate e Denúncia</a>
-            <a href="{{ url_for('ongs') }}" class="btn btn-ini btn-lg">Adicione a sua ONG</a>
-            <a href="{{ url_for('listar_animais') }}" class="btn btn-ini btn-lg">Adote-me</a>
-            <a href="{{ url_for('listar_usuarios') }}" class="btn btn-ini btn-lg">Tabela de Usúarios</a>
-
-        </div>
+                <div class="card-body6 text-center mx-3 my-2 d-flex flex-column justify-content-center align-items-center">
+                    <p>{{ animal.raca }}</p>
+                    <p>{{ animal.idade }} anos</p>
+                    <a href="{{ url_for('cadastro_adocao', id_animal = animal.id_animal) }}"
+                       class="btn button2 mt-2 ">Adotar</a>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>Não há animais disponíveis</p>
+        {% endif %}
     </div>
-
-</div>
-</div>
-
-</body>
-</html>
+{% endblock main %}
