@@ -1,48 +1,48 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Adoções</title>
-    <link rel="stylesheet" href="../static/base.css">
-</head>
-<body>
+{% if papel == 'voluntario' %}
+    {% extends 'base.html' %}
+{% else %}
+    {% extends 'base_ong.html' %}
+{% endif %}
 
-<header class="header10">
-    <div class="logo10">
-        <img src="/static/Logo.png" alt="Logo" width="100" height="100">
+{% block main %}
+
+    <div class="d-flex gap-3 p-2">
+        {% if voluntarios %}
+
+            {% if papel == 'ong' %}
+                {% for voluntario in voluntarios %}
+                <div class="card10">
+                    <h3>{{ voluntario.id_voluntario }}</h3>
+                    <div class="card-left10">
+                        <i class="bi bi-person"></i>
+                        <h5 class="text-center">{{ voluntario.nome_voluntario }}</h5>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                {% for voluntario in voluntarios %}
+                    <div class="card7 d-flex flex-column justify-content-center p-3">
+                        <div class="card-body7 mx-1 p-3 text-center">
+                            <p class="text-center d-flex justify-content-center"><strong>{{ voluntario.nome_ong }}</strong></p>
+
+                            <img src="{{voluntario.imagem }}" class="card-img-top mx-auto mb-2 d-block rounded-4 shadow"
+                                 style="height: 150px; width: 150px;">
+
+                            <div class="card-text div-precisa text-center p-2 d-flex flex-column justify-content-start align-items-center">
+                                <p><strong>Ong:</strong> {{ voluntario.ong }}</p>
+                            </div>
+
+                            <a href="{{ url_for('cadastro_doacao', ong_id=2) }}"
+                               class="btn button2 mt-2" style="width: 100%"><strong>Doar</strong></a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% else %}
+            <p style="text-align: center; margin-top: 2rem;">
+                Nenhuma voluntário registrado.
+            </p>
+        {% endif %}
     </div>
-    <h1>ADOÇÕES</h1>
-    <div class="perfil10">
-        <button class="perfil-btn10">
-            <img src="/static/personagem.png" alt="Perfil" width="50" height="50">
-        </button>
-    </div>
-</header>
 
-<main class="container10">
-    <a class="btn-secondary" href="{{url_for('voluntario')}}">
-        <i class="bi bi-arrow-left-short"></i>Voltar
-    </a>
-
-    <!-- CARD 1 -->
-    <div class="card10">
-        <div class="card-img10">
-            <img src="/static/cachorro.png" alt="Animal">
-        </div>
-
-
-
-        <div class="card-info10">
-            <p><strong>Nome:</strong> Laura</p>
-            <p><strong>CPF:</strong> 47575073809</p>
-            <p><strong>Nome da Ong:</strong> Ongs Feliz</p>
-            <p><strong>Adoção:</strong> Em andamento</p>
-        </div>
-    </div>
-
-    </div>
-
-</main>
-
-</body>
-</html>
+{% endblock main %}

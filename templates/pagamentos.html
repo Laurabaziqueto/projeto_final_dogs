@@ -1,0 +1,24 @@
+{% extends 'base_ong.html' %}
+
+{% block main %}
+
+    <div class="d-flex">
+        {% if pagamentos %}
+        {% for pagamento in pagamentos %}
+        <div class="card10">
+            <div class="card-left10">
+                <h5 class="text-center">{{ pagamento.usuario }}</h5>
+
+                <p><strong>Valor: </strong>   R${{ pagamento.valor }}</p>
+                <p>{{ pagamento.data_registro }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p style="text-align: center; margin-top: 2rem;">
+            Nenhuma doação registrada, doe agora.
+        </p>
+    {% endif %}
+    </div>
+
+{% endblock main %}

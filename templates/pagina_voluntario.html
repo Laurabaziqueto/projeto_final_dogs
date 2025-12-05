@@ -2,21 +2,21 @@
 
 {% block main %}
 
-    <div class="div-cards2 d-flex justify-content-start p-2">
+    <div class="div-cards2 d-flex justify-content-start p-2 gap-2">
         {% if ongs %}
             {% for ong in ongs %}
                 <div class="card7 d-flex flex-column justify-content-center p-3">
                     <div class="card-body7 mx-1 p-3 text-center">
-                        <p>{{ ong.nome_ong}}</p>
+                        <p class="text-center d-flex justify-content-center"><strong>{{ ong.nome_ong }}</strong></p>
 
                         <img src="{{ong.imagem }}" class="card-img-top mx-auto mb-2 d-block rounded-4 shadow"
                              style="height: 150px; width: 150px;">
 
-                        <div class="card-text div-precisa text-center p-2 d-flex flex-column justify-content-center align-items-center">
-                            <p><strong>Precisa-se:</strong> {{ ong.necessidades }}, vacina, remedio, coleiras</p>
+                        <div class="card-text div-precisa text-center p-2 d-flex flex-column justify-content-start align-items-center">
+                            <p><strong>Precisa-se:</strong> {{ ong.necessidades }}</p>
                         </div>
 
-                        <a href="{{ url_for('cadastro_voluntario', ong_id=ong.id_ong) }}"
+                        <a href="{{ url_for('cadastro_voluntario', ong_id=2) }}"
                            class="btn button2 mt-2" style="width: 100%"><strong>Voluntaria-se</strong></a>
 
                         <a href="{{ url_for('cadastro_doacao', ong_id=ong.id_ong) }}"

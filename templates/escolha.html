@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Escolha</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/base.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+<div class="container-escolha d-flex flex-column justify-content-evenly align-items-center">
+
+    <h1>Escolha seu perfil</h1>
+    <!-- Conteúdo principal -->
+    <div class="d-flex flex-row justify-content-evenly align-items-center w-100">
+
+        <a href="{{ url_for('pagina_inicial', papel='ong') }}" class="a-escolha">
+            <div class="card-escolha d-flex flex-column justify-content-start text-center gap-3 p-2">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8R_C0yb6NKgwkB_dRI9V9iS00GKGMAIfkBw&s">
+                <h2>Ong</h2>
+            </div>
+        </a>
+
+        <a href="{{ url_for('pagina_inicial', papel='voluntario') }}" class="a-escolha">
+            <div class="card-escolha d-flex flex-column justify-content-start text-center gap-3 p-2">
+                <img src="https://odontovet.com/wp-content/uploads/2016/05/vonunteer-with-dog-at-an-animal-shelter.jpg">
+                <h2>Voluntario</h2>
+            </div>
+        </a>
+    </div>
+</div>
+</body>
+</html>

@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de ONG</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          crossorigin="anonymous">
+
     <link rel="stylesheet" href="/static/base.css">
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Purple+Purse&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -16,9 +26,7 @@
     <h1>Cadastro de ONG</h1>
 
     <div class="perfil-alt">
-
-            <img src="/static/personagem.png" width="50" height="50" alt="">
-
+        <img src="/static/personagem.png" width="50" height="50" alt="">
     </div>
 </header>
 
@@ -33,27 +41,25 @@
             <input type="text" name="chave_pix" placeholder="Chave Pix:" required>
 
             <textarea name="necessidades"
-                style="background-color: #A8CBA4; color: #555; border-radius: 10px; padding: 8px; border: none; width: 510px;"
-                placeholder="necessidade da ong"
-                required></textarea>
+                      style="background-color: #A8CBA4; color: #555; border-radius: 10px; padding: 8px; border: none; width: 510px;"
+                      placeholder="necessidade da ong"
+                      required></textarea>
 
             <label for="url">Adicione o link da Imagem:</label>
             <input type="url" id="url" name="imagem" placeholder="https://exemplo.com" required>
 
             <textarea name="descricao"
-                style="background-color: #A8CBA4; color: #555; border-radius: 10px; padding: 8px; border: none; width: 510px;"
-                placeholder="Adicione uma descrição"
-                required></textarea>
+                      style="background-color: #A8CBA4; color: #555; border-radius: 10px; padding: 8px; border: none; width: 510px;"
+                      placeholder="Adicione uma descrição"
+                      required></textarea>
 
 
             <div class="form-group">
-                <button type="submit" class="btn-primary" href="{{ url_for('pagina_inicial') }}" >Concluir</button>
-                <a class="btn-secondary" href="{{ url_for('pagina_inicial') }}">◂ Voltar</a>
+                <button type="submit" class="btn-primary" href="{{ url_for('listar_animais') }}">Concluir</button>
             </div>
 
         </form>
     </div>
 </main>
-
 </body>
 </html>

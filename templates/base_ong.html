@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Pagina de Animais</title>
+    <title>Pagina da Ong</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
@@ -23,23 +23,22 @@
 
     <header class="topo-alt">
         <div class="logo-texto-alt ms-3"><img src="/static/Logo.png" width="100" height="80"></div>
-        <h1>Pagina Inicial</h1>
+        <h1>Minha Ong</h1>
         <div class="perfil-alt">
             <img src="/static/personagem.png" width="50" height="50" alt="">
         </div>
     </header>
 
     <div class="d-flex flex-row w-100">
-        <nav class="navbar justify-content-between">
+        <nav class="navbar justify-content-center">
             <ul>
-                <li><a href="{{ url_for('listar_animais', status='d') }}" class="btn button">Animais</a></li>
-                <li><a href="{{ url_for('listar_ongs') }}" class="btn button">Ongs</a></li>
-                <li><a href="{{ url_for('resgate') }}" class="btn button">Resgate e Denuncia</a></li>
+                <li><a href="{{ url_for('cadastro_animal') }}" class="btn button">Adicione um Animal</a></li>
+                <li><a href="{{ url_for('listar_animais', status='d') }}" class="btn button">Animais Disponíveis</a></li>
+                <li><a href="{{ url_for('listar_animais', status='a') }}" class="btn button">Animais Adotados</a></li>
             </ul>
             <ul>
-                <li><a href="{{ url_for('listar_adocoes') }}" class="btn button">Minhas Adoções</a></li>
-                <li><a href="{{ url_for('listar_doacoes') }}" class="btn button">Minhas Doações</a></li>
-                <li><a href="{{ url_for('listar_voluntariados') }}" class="btn button">Meus voluntariados</a></li>
+                <li><a href="{{ url_for('listar_voluntarios') }}" class="btn button">Voluntários</a></li>
+                <li><a href="{{ url_for('listar_pagamentos') }}" class="btn button">Doações</a></li>
             </ul>
         </nav>
 

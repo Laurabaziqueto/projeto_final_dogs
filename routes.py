@@ -2,7 +2,7 @@ import pickle
 
 import requests
 
-base_url = "http://10.135.235.27:5001"
+base_url = "http://10.135.235.5:5001"
 
 def post_login(cpf, senha):
     try:
@@ -60,18 +60,19 @@ def post_usuario(nome, cpf, telefone, email, senha ):
             "error": f"{e}"
         }
 
-def put_usuario(nome, cpf, email, senha, telefone,id_usuario):
+def put_usuario(usuario):
     try:
-        url = f"{base_url}/editar_usuario/{id_usuario}"
+        url = f"{base_url}/editar_usuario/{usuario['id_usuario']}"
         dados = {
-            "nome": nome,
-            "cpf": cpf,
-            "telefone": telefone,
-            "email": email,
-            "senha": senha,
+            "id": usuario['id_usuario'],
+            "nome": usuario['nome'],
+            "cpf": usuario['cpf'],
+            "telefone": usuario['telefone'],
+            "email": usuario['email'],
+            "papel": usuario['papel'],
         }
-        response = requests.post(url, json=dados)
-        return response.json()
+        response = requests.put(url, json=dados)
+        return response.status_code
     except Exception as e:
         print(e)
         return {
@@ -146,16 +147,15 @@ def post_doacao(usuario_id, ong_id, valor):
             "error": f"{e}"
         }
 
-def get_animais():
+def get_animais(status):
     try:
-        url = f"{base_url}/listar_animais"
+        url = f"{base_url}/listar_animais/{status}"
         response = requests.get(url)
         return response.json()
     except Exception as e:
         print(e)
         return {
             "error": f"{e}",
-
         }
 
 def post_animal(categoria, nome, raca, idade, sexo, imagem):
@@ -221,6 +221,28 @@ def get_pagamentos(id_ong):
             "error": f"{e}",
         }
 
+def get_voluntarios(id_ong):
+    try:
+        url = f"{base_url}/listar_voluntarios/{id_ong}"
+        response = requests.get(url)
+        return response.json()
+    except Exception as e:
+        print(e)
+        return {
+            "error": f"{e}",
+        }
+
+def get_voluntariados(id_usuario):
+    try:
+        url = f"{base_url}/listar_voluntariados/{id_usuario}"
+        response = requests.get(url)
+        return response.json()
+    except Exception as e:
+        print(e)
+        return {
+            "error": f"{e}",
+        }
+
 def post_ongs(nome_ong, chave_pix, necessidades, imagem, descricao ):
     try:
         url = f"{base_url}/cadastro_ong"
@@ -232,7 +254,7 @@ def post_ongs(nome_ong, chave_pix, necessidades, imagem, descricao ):
             "descricao": descricao,
         }
         response = requests.post(url, json=dados)
-        return response.status_code
+        return response
     except Exception as e:
         print(e)
         return {

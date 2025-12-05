@@ -1,0 +1,51 @@
+{% if papel == 'voluntario' %}
+    {% extends 'base.html' %}
+{% else %}
+    {% extends 'base_ong.html' %}
+{% endif %}
+
+{% block main %}
+<div class="div-cards d-flex flex-wrap gap-3 mx-1 pb-4">
+    {% if animais %}
+        {% for animal in animais.animais %}
+            {% if status == 'd' %}
+                <div class="card6 d-flex flex-column justify-content-center align-items-center shadow mt-2 pt-2"
+                     style="width: 17rem;">
+
+                    <h5 class="text-title text-center">{{ animal.nome }}</h5>
+                    <img src="{{ animal.imagem }}" class="card-img-top mx-auto d-block mt-1 rounded-4 shadow"
+                         style="height: 150px; width: 150px;">
+
+
+                    <div class="card-body6 text-center mx-3 my-2 py-2 d-flex flex-column justify-content-start align-items-center">
+                        <p><strong>Raça: </strong> {{ animal.raca }}</p>
+                        <p>{{ animal.idade }} anos</p>
+                        {% if papel == 'voluntario' %}
+                            <a href="{{ url_for('cadastro_adocao', id_animal = animal.id_animal) }}"
+                                class="btn button2 ">Adotar</a>
+                        {% else %}
+                            <a href="{{ url_for('editar_animal', id_animal = animal.id_animal) }}"
+                                class="btn button2 ">Editar</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% else %}
+                <div class="card6 d-flex flex-column justify-content-center align-items-center shadow mt-2 pt-2"
+                 style="width: 17rem;">
+
+                    <h5 class="text-title text-center">{{ animal.animal.nome }}</h5>
+                    <img src="{{ animal.animal.imagem }}" class="card-img-top mx-auto d-block mt-1 rounded-4 shadow"
+                         style="height: 150px; width: 150px;">
+
+                    <div class="card-body6 text-center mx-3 my-2 d-flex flex-column justify-content-center align-items-center">
+                        <p><strong>Adotado por: </strong> {{ animal.nome_adotante }}</p>
+                        <p>{{ animal.data_adocao }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <p>Não há animais disponíveis</p>
+    {% endif %}
+</div>
+{% endblock main %}

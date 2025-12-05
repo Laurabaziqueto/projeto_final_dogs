@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
 
 {% block main %}
-
+<div class="d-flex flex-row justify-content-start flex-wrap">
     {% if adocoes %}
         {% for adocao in adocoes %}
         <div class="card10">
             <div class="card-left10">
-                <img src="{{ adocao.imagem }}" class="card-img-top mx-auto d-block mt-1 rounded-4 shadow"
-                     style="height: 100px; width: 100px;">
+                <img src="{{ adocao.imagem }}" class="card-img-top mt-1 rounded-4 shadow w-100">
                 <p><strong>animal:</strong> {{ adocao.animal }}</p>
             </div>
 
@@ -22,4 +21,6 @@
             Nenhuma adoção registrada.
         </p>
     {% endif %}
+</div>
+
 {% endblock main %}
